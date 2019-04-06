@@ -66,18 +66,6 @@ customCSS = ["example.css"]
 bible_popups = true
 instant_page = true
 
-[params.podcast]
-title = "Listen to Alpha Church"
-subtitle = ""
-summary = "Alpha-Church sermons, talks, messages—podcasted."
-email = "test@example.com"
-copyright = "Podcast: [CC0 (public domain)](//creativecommons.org/publicdomain/zero/1.0/)"
-image = "img/podcast-cover.jpg"
-category = "Religion & Spirituality"
-sub_category = "Christianity"
-iTunes = "https://itunes.apple.com/us/podcast/tgc-word-of-the-week/id1034013280"
-feed = "https://www.thegospelcoalition.org/podcasts/word-of-the-week/feed/?feed=podcast"
-
 [params.map]
 # For Open Street Map widgets
 latitude = "38.847145"
@@ -114,7 +102,7 @@ text = "Find out more"
 #Details for the box below the banner
 [params.landing.services]
 title = "Church on Sunday"
-text = "We meet at 5 am and 2 pm at [6 Parvis Notre-Dame - Pl. Jean-Paul II, 75004 Paris](https://www.openstreetmap.org/way/201611261)."
+text = "We meet at 7 am and 4:30 pm at [523 Riverland Drive, Crested Butte, CO 81224](https://www.openstreetmap.org/way/177202095)."
 map_location = "Cathédrale Notre-Dame de Paris"
 
 [params.landing.feature_icons]
@@ -156,15 +144,15 @@ enable = true
 
 [[params.landing.feature_images.tile]]
 image = "images/PRIVATE_IMAGE_building_and_whetstone.jpg"
-title = "Childrens' Ministry"
-text = "A church for the family."
+title = "Located in beautiful Riverland"
+text = "Convenient for downtown and CB south"
 url = "/kids"
 button_text = "Learn more"
 
 [[params.landing.feature_images.tile]]
 image = "images/PRIVATE_IMAGE_group_class_room.jpg"
-title = "Midweek Ministries"
-text = "Want more during the week?"
+title = "Core Classes and Bootcamps"
+text = "High intensity cardio groups"
 url = "#"
 button_text="Join a group today!"
 
