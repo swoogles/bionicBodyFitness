@@ -100,7 +100,7 @@ confirm_page = "/contact_thanks"
 [params.landing]
 
 [params.landing.banner]
-image = "img/banner.jpg"
+image = "images/private_image_replace_before_going_live.jpg"
 
 [[params.landing.banner.button]]
 url = "/contact"
