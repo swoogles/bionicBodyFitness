@@ -114,7 +114,7 @@ enable = true
 icon = "fa-fist-raised"
 icon_pack = "fas"
 accent = "1"
-title = "Group S"
+title = "Decades of Training Experience"
 text = "Personalized Exercises to Match Your Body"
 
 [[params.landing.feature_icons.tile]]
