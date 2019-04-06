@@ -80,8 +80,8 @@ feed = "https://www.thegospelcoalition.org/podcasts/word-of-the-week/feed/?feed=
 
 [params.map]
 # For Open Street Map widgets
-latitude = "48.8530"
-longitude = "2.3498"
+latitude = "38.847145"
+longitude = "-106.947833"
 zoom = "18"
 
 [params.contact]
