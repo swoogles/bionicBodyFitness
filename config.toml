@@ -162,7 +162,7 @@ url = "/kids"
 button_text = "Learn more"
 
 [[params.landing.feature_images.tile]]
-image = "img/freely-26905.jpg"
+image = "images/PRIVATE_IMAGE_group_class_room.jpg"
 title = "Midweek Ministries"
 text = "Want more during the week?"
 url = "#"
