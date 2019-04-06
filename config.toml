@@ -137,25 +137,25 @@ title = "Group Sessions"
 text = "Synchronized Core Classes and Bootcamps"
 
 [[params.landing.feature_icons.tile]]
-icon = "fa-comments"
+icon = "fa-dumbbell"
 icon_pack = "fas"
 accent = "5"
-title = "Speak"
-text = "Speaking encouragement to one-another."
+title = "Weights"
+text = "Targeted, Personalized Weight Training"
 
 [[params.landing.feature_icons.tile]]
 icon = "fa-heartbeat"
 icon_pack = "fas"
 accent = "3"
-title = "Loved"
-text = "Knowing Love. Being Loved."
+title = "Cardio"
+text = "Treadmills and Elipticals"
 
 [params.landing.feature_images]
 #These feature images look best if there's an even number of them.
 enable = true
 
 [[params.landing.feature_images.tile]]
-image = "img/freely-10057.jpg"
+image = "images/PRIVATE_IMAGE_building_and_whetstone.jpg"
 title = "Childrens' Ministry"
 text = "A church for the family."
 url = "/kids"
