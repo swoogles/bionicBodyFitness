@@ -39,13 +39,13 @@ url = "#"
 weight = 3
 
 [[menu.main]]
-name = "Sermons"
-url = "/sermons"
+name = "Group Classes"
+url = "/group_classes"
 parent = "Resources"
 weight = 1
 
 [[menu.main]]
-name = "Blog"
+name = "Personal Training"
 url = "/posts"
 parent = "Resources"
 weight = 2
@@ -101,7 +101,7 @@ text = "Find out more"
 
 #Details for the box below the banner
 [params.landing.services]
-title = "Church on Sunday"
+title = "Your Local Fitness Solution"
 text = "We meet at 7 am and 4:30 pm at [523 Riverland Drive, Crested Butte, CO 81224](https://www.openstreetmap.org/way/177202095)."
 map_location = "Cathédrale Notre-Dame de Paris"
 
@@ -111,14 +111,14 @@ enable = true
 
 #Accent is a colour defined in the CSS file. Choose between 1 and 5
 [[params.landing.feature_icons.tile]]
-icon = "fa-hands-helping"
+icon = "fa-fist-raised"
 icon_pack = "fas"
 accent = "1"
-title = "Workout"
-text = "Growing muscles for people who serve our community."
+title = "Group S"
+text = "Personalized Exercises to Match Your Body"
 
 [[params.landing.feature_icons.tile]]
-icon = "fa-church"
+icon = "fa-hands-helping"
 icon_pack = "fas"
 accent = "2"
 title = "Group Sessions"
@@ -129,7 +129,7 @@ icon = "fa-dumbbell"
 icon_pack = "fas"
 accent = "5"
 title = "Weights"
-text = "Targeted, Personalized Weight Training"
+text = "Targeted, Customized Weight Training"
 
 [[params.landing.feature_icons.tile]]
 icon = "fa-heartbeat"
