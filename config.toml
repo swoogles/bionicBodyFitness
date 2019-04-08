@@ -28,26 +28,26 @@ url = "/about"
 weight = 1
 
 [[menu.main]]
-name = "Leaders"
+name = "Trainers"
 parent = "About"
-url = "/leaders"
+url = "/trainers"
 weight = 2
 
 [[menu.main]]
-name = "Resources"
+name = "Services"
 url = "#"
 weight = 3
 
 [[menu.main]]
 name = "Group Classes"
 url = "/group_classes"
-parent = "Resources"
+parent = "Services"
 weight = 1
 
 [[menu.main]]
 name = "Personal Training"
 url = "/posts"
-parent = "Resources"
+parent = "Services"
 weight = 2
 
 [[menu.main]]
@@ -63,6 +63,7 @@ author = "Bill Frasure"
 
 customCSS = ["example.css"]
 
+# I wonder what this does...
 bible_popups = true
 instant_page = true
 
@@ -97,7 +98,7 @@ type = "primary"
 
 [[params.landing.banner.button]]
 url = "#feature-icons"
-text = "Find out more"
+text = "Reserve a class spot"
 
 #Details for the box below the banner
 [params.landing.services]
