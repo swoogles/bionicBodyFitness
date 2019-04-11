@@ -51,6 +51,13 @@ parent = "Services"
 weight = 2
 
 [[menu.main]]
+name = "Videos"
+url = "https://www.youtube.com/channel/UCLs-1dTfEH0WTU4_Gx4BM4g"
+parent = "Services"
+weight = 3
+
+
+[[menu.main]]
 name = "Contact"
 url = "/contact"
 weight = 4
