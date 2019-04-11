@@ -151,10 +151,10 @@ url = "/kids"
 button_text = "Learn more"
 
 [[params.landing.feature_images.tile]]
-image = "images/PRIVATE_IMAGE_group_class_room.jpg"
-title = "Core Classes and Bootcamps"
-text = "High intensity cardio groups"
-url = "#"
+image = "images/fembot.jpg"
+title = "Exercise Videos"
+text = "Supplement your in-house sessions with a growing selection of instructional videos"
+url = "https://www.youtube.com/channel/UCLs-1dTfEH0WTU4_Gx4BM4g"
 button_text="Join a group today!"
 
 [params.landing.CTA]
