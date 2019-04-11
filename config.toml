@@ -111,7 +111,7 @@ text = "Reserve a class spot"
 [params.landing.services]
 title = "Your Local Fitness Solution"
 text = "We meet at 7 am and 4:30 pm at [523 Riverland Drive, Crested Butte, CO 81224](https://www.openstreetmap.org/way/177202095)."
-map_location = "Cathédrale Notre-Dame de Paris"
+map_location = "Bionic Body Fitness"
 
 [params.landing.feature_icons]
 #These feature icons look best if there's an even number of them.
