@@ -26,17 +26,18 @@ name = "Services"
 url = "#"
 weight = 3
 
-[[menu.main]]
-name = "Group Classes"
-url = "/group_classes"
-parent = "Services"
-weight = 1
+# TODO Re-enable these when they exist
+# [[menu.main]]
+# name = "Group Classes"
+# url = "/group_classes"
+# parent = "Services"
+# weight = 1
 
-[[menu.main]]
-name = "Personal Training"
-url = "/posts"
-parent = "Services"
-weight = 2
+# [[menu.main]]
+# name = "Personal Training"
+# url = "/posts"
+# parent = "Services"
+# weight = 2
 
 [[menu.main]]
 name = "Videos"
@@ -84,7 +85,7 @@ confirm_page = "/contact_thanks"
 [params.landing]
 
 [params.landing.banner]
-image = "images/private_image_replace_before_going_live.jpg"
+image = "images/PRIVATE_IMAGE_building_and_whetstone.jpg"
 
 [[params.landing.banner.button]]
 url = "/contact"
