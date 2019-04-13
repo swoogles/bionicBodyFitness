@@ -17,19 +17,7 @@ url = "/"
 weight = 1
 
 [[menu.main]]
-name = "About"
-url = "/about"
-weight = 2
-
-[[menu.main]]
-name = "About Us"
-parent = "About"
-url = "/about"
-weight = 1
-
-[[menu.main]]
 name = "Trainers"
-parent = "About"
 url = "/trainers"
 weight = 2
 
