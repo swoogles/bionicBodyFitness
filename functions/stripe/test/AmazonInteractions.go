@@ -3,6 +3,7 @@ package test
 import (
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
+	"github.com/swoogles/bionicBodyFitness/functions/stripe"
 	"net/url"
 )
 
