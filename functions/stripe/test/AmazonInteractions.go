@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
-	"github.com/swoogles/bionicBodyFitness/functions/stripe"
+	"github.com/swoogles/stripe"
 	"net/url"
 )
 
@@ -13,6 +13,7 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 	token := parameterMap.Get("stripeToken")
 
 	paymentResult := stripe.ExecuteTestStripePaymentWithAmount(token, 350)
+	stripe.CreateTestProduct()
 	// TODO get some info about the charge, and then decide where to reroute
 
 	return &events.APIGatewayProxyResponse{
