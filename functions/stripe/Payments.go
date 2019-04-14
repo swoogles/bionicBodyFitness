@@ -1,4 +1,4 @@
-package main
+package stripe
 
 import (
 	"fmt"
@@ -28,5 +28,3 @@ func createTestPaymentFunction(testKey string) func(string, int64) string {
 func ExecuteTestStripePaymentWithAmount(stripePaymentToken string, amount int64) string {
 	return createTestPaymentFunction("STRIPE_SECRET_KEY")(stripePaymentToken, amount)
 }
-
-func main() {}
