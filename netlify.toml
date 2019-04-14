@@ -4,7 +4,6 @@ functions = "lambdas"
 publish = "public"
 
 [build.environment]
-HUGO_VERSION = "0.47"
 GO_IMPORT_PATH = "github.com/swoogles/hugoprojects"
 
 [context.production.environment]
