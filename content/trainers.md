@@ -7,3 +7,4 @@ Live/Local!!
 ## Marisca
 *Personal info here. Get from Marisca*
 
+{{<test_stripe_payment_form>}}

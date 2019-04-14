@@ -1,0 +1,15 @@
+[build]
+command = "make build"
+functions = "lambdas"
+publish = "public"
+
+[build.environment]
+HUGO_VERSION = "0.47"
+GO_IMPORT_PATH = "github.com/swoogles/hugoprojects"
+
+[context.production.environment]
+HUGO_ENV = "production"
+HUGO_ENABLEGITINFO = "true"
+
+[context.deploy-preview]
+command = "hugo --buildDrafts --buildFuture --baseURL $DEPLOY_PRIME_URL"
