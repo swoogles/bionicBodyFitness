@@ -1,6 +1,6 @@
 
 
-<form action="/.netlify/lambdas/live-submit-stripe-charge" method="POST">
+<form action="/.netlify/functions/live-submit-stripe-charge" method="POST">
     <script
             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key={{ getenv "LIVE_STRIPE_PUBLIC_KEY" }}
