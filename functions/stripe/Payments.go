@@ -26,5 +26,5 @@ func createTestPaymentFunction(testKey string) func(string, int64) string {
 }
 
 func ExecuteTestStripePaymentWithAmount(stripePaymentToken string, amount int64) string {
-	return createTestPaymentFunction("STRIPE_SECRET_KEY")(stripePaymentToken, amount)
+	return createTestPaymentFunction("TEST_STRIPE_SECRET_KEY")(stripePaymentToken, amount)
 }
