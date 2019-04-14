@@ -13,7 +13,11 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 	token := parameterMap.Get("stripeToken")
 
 	paymentResult := stripe.ExecuteTestStripePaymentWithAmount(token, 350)
-	stripe.CreateTestProduct()
+	//stripe.CreateTestProduct()
+	productId := "prod_Et1gMmK1DWlq3S"
+	planId := stripe.CreateTestPlan()(productId)
+	customerId := stripe.CreateTestCustomer()
+	stripe.CreateTestSubscription(planId, customerId)
 	// TODO get some info about the charge, and then decide where to reroute
 
 	return &events.APIGatewayProxyResponse{
