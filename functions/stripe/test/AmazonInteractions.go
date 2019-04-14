@@ -13,7 +13,6 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 	token := parameterMap.Get("stripeToken")
 
 	paymentResult := stripe.ExecuteTestStripePaymentWithAmount(token, 350)
-	//stripe.CreateTestProduct()
 	productId := "prod_Et1gMmK1DWlq3S"
 	planId := stripe.CreateTestPlan()(productId)
 	customerId := stripe.CreateTestCustomer()
