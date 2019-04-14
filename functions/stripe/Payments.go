@@ -1,4 +1,4 @@
-package stripe
+package main
 
 import (
 	"fmt"
@@ -6,10 +6,6 @@ import (
 	"github.com/stripe/stripe-go/charge"
 	"os"
 )
-
-func ExecuteStripePayment(stripePaymentToken string) string {
-	return executeTestStripePaymentWithAmount(stripePaymentToken, 999)
-}
 
 func createTestPaymentFunction(testKey string) func(string, int64) string {
 	return func(stripePaymentToken string, amount int64) string {
@@ -29,6 +25,8 @@ func createTestPaymentFunction(testKey string) func(string, int64) string {
 
 }
 
-func executeTestStripePaymentWithAmount(stripePaymentToken string, amount int64) string {
+func ExecuteTestStripePaymentWithAmount(stripePaymentToken string, amount int64) string {
 	return createTestPaymentFunction("STRIPE_SECRET_KEY")(stripePaymentToken, amount)
 }
+
+func main() {}

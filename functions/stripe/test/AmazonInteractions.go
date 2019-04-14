@@ -1,4 +1,4 @@
-package test
+package main
 
 import (
 	"github.com/aws/aws-lambda-go/events"
@@ -12,7 +12,7 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 	parameterMap, _ := url.ParseQuery(request.Body)
 	token := parameterMap.Get("stripeToken")
 
-	paymentResult := stripe.ExecuteStripePayment(token)
+	paymentResult := stripe.ExecuteTestStripePaymentWithAmount(token, 350)
 	// TODO get some info about the charge, and then decide where to reroute
 
 	return &events.APIGatewayProxyResponse{
