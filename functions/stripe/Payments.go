@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-func executeStripePayment(stripePaymentToken string) string {
+func ExecuteStripePayment(stripePaymentToken string) string {
 	return executeTestStripePaymentWithAmount(stripePaymentToken, 999)
 }
 

@@ -12,7 +12,7 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 	parameterMap, _ := url.ParseQuery(request.Body)
 	token := parameterMap.Get("stripeToken")
 
-	paymentResult := executeStripePayment(token)
+	paymentResult := stripe.ExecuteStripePayment(token)
 	// TODO get some info about the charge, and then decide where to reroute
 
 	return &events.APIGatewayProxyResponse{
