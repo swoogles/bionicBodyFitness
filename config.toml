@@ -27,11 +27,11 @@ url = "#"
 weight = 3
 
 # TODO Re-enable these when they exist
-# [[menu.main]]
-# name = "Group Classes"
-# url = "/group_classes"
-# parent = "Services"
-# weight = 1
+[[menu.main]]
+ name = "Group Classes"
+ url = "/class_schedule"
+ parent = "Services"
+ weight = 1
 
 # [[menu.main]]
 # name = "Personal Training"
