@@ -94,7 +94,7 @@ type = "primary"
 
 [[params.landing.banner.button]]
 url = "#feature-icons"
-text = "Reserve a class spot"
+text = "Find a class"
 
 #Details for the box below the banner
 [params.landing.services]
