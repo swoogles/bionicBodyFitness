@@ -67,7 +67,7 @@ instant_page = true
 # For Open Street Map widgets
 latitude = "38.847145"
 longitude = "-106.947833"
-zoom = "18"
+zoom = "12"
 
 [params.contact]
 #Use this section to automate contact form.
@@ -143,8 +143,8 @@ enable = true
 image = "images/PRIVATE_IMAGE_building_and_whetstone.jpg"
 title = "Located in beautiful Riverland"
 text = "Convenient for downtown and CB south"
-url = "/kids"
-button_text = "Learn more"
+url = "/class_schedule"
+button_text = "Check classes"
 
 [[params.landing.feature_images.tile]]
 image = "images/fembot.jpg"
