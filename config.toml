@@ -93,13 +93,13 @@ text = "Get in touch"
 type = "primary"
 
 [[params.landing.banner.button]]
-url = "#feature-icons"
+url = "/class_schedule"
 text = "Find a class"
 
 #Details for the box below the banner
 [params.landing.services]
 title = "Your Local Fitness Solution"
-text = "We meet at 7 am and 4:30 pm at [523 Riverland Drive, Crested Butte, CO 81224](https://www.openstreetmap.org/way/177202095)."
+text = "We train at [523 Riverland Drive, Crested Butte, CO 81224](https://www.openstreetmap.org/way/177202095)."
 map_location = "Bionic Body Fitness"
 
 [params.landing.feature_icons]
@@ -118,8 +118,8 @@ text = "Personalized Exercises to Match Your Body"
 icon = "fa-hands-helping"
 icon_pack = "fas"
 accent = "2"
-title = "Group Sessions"
-text = "Synchronized Core Classes and Bootcamps"
+title = "Group Classes"
+text = "[Synchronized Core Classes and Bootcamps](/class_schedule)"
 
 [[params.landing.feature_icons.tile]]
 icon = "fa-dumbbell"
@@ -149,9 +149,9 @@ button_text = "Learn more"
 [[params.landing.feature_images.tile]]
 image = "images/fembot.jpg"
 title = "Exercise Videos"
-text = "Supplement your in-house sessions with a growing selection of instructional videos"
+text = "Supplement your in-house classes with a growing selection of instructional videos"
 url = "https://www.youtube.com/channel/UCLs-1dTfEH0WTU4_Gx4BM4g"
-button_text="Join a group today!"
+button_text="Watch the videos on YouTube"
 
 [params.landing.CTA]
 heading = "Get in touch!"
