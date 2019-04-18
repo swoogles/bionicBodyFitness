@@ -132,8 +132,8 @@ text = "Targeted, Customized Weight Training"
 icon = "fa-heartbeat"
 icon_pack = "fas"
 accent = "3"
-title = "Cardio"
-text = "Treadmills and Elipticals"
+title = "Heart Healthy"
+text = "High Intensity Classes to get your blood pumping"
 
 [params.landing.feature_images]
 #These feature images look best if there's an even number of them.
