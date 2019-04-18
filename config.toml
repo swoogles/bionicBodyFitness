@@ -99,7 +99,7 @@ text = "Find a class"
 #Details for the box below the banner
 [params.landing.services]
 title = "Your Local Fitness Solution"
-text = "Our gym is located in Riverland at [523 Riverland Drive, Crested Butte, CO 81224](https://www.openstreetmap.org/way/177202095)."
+text = "Our gym is located in Riverland at [523 Riverland Drive, Crested Butte, CO 81224](https://www.openstreetmap.org/node/6387166010)."
 map_location = "Bionic Body Fitness"
 
 [params.landing.feature_icons]
