@@ -28,7 +28,7 @@ weight = 3
 
 # TODO Re-enable these when they exist
 [[menu.main]]
- name = "Group Classes"
+ name = "Class Schedule"
  url = "/class_schedule"
  parent = "Services"
  weight = 1
@@ -94,7 +94,7 @@ type = "primary"
 
 [[params.landing.banner.button]]
 url = "/class_schedule"
-text = "Find a class"
+text = "Class Schedule"
 
 #Details for the box below the banner
 [params.landing.services]
@@ -119,7 +119,7 @@ icon = "fa-hands-helping"
 icon_pack = "fas"
 accent = "2"
 title = "Group Classes"
-text = "[Synchronized Core Classes and Bootcamps](/class_schedule)"
+text = "[Class Schedule](/class_schedule)"
 
 [[params.landing.feature_icons.tile]]
 icon = "fa-dumbbell"
@@ -144,7 +144,7 @@ image = "images/PRIVATE_IMAGE_building_and_whetstone.jpg"
 title = "Located in beautiful Riverland"
 text = "Convenient for downtown and CB south"
 url = "/class_schedule"
-button_text = "Check classes"
+button_text = "Class Schedule"
 
 [[params.landing.feature_images.tile]]
 image = "images/fembot.jpg"
