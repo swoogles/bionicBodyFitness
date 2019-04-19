@@ -31,7 +31,9 @@
 							<div class="features-row">
 								{{ range $index, $key := $tiles}}
 									<section>
+										<a href="{{$key.url }}">
 										<span class="icon major {{ $key.icon_pack }} {{ $key.icon }} accent{{- $key.accent -}}"></span>
+										</a>
 										<h3>{{ $key.title }}</h3>
 										<p>{{ $key.text | markdownify }}</p>
 									</section>

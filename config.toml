@@ -113,6 +113,7 @@ icon_pack = "fas"
 accent = "1"
 title = "Decades of Training Experience"
 text = "Personalized Exercises to Match Your Body"
+url = "/contact"
 
 [[params.landing.feature_icons.tile]]
 icon = "fa-hands-helping"
@@ -120,6 +121,7 @@ icon_pack = "fas"
 accent = "2"
 title = "Group Classes"
 text = "[Class Schedule](/class_schedule)"
+url = "/class_schedule"
 
 [[params.landing.feature_icons.tile]]
 icon = "fa-dumbbell"
@@ -127,6 +129,7 @@ icon_pack = "fas"
 accent = "5"
 title = "Weights"
 text = "Targeted, Customized Weight Training"
+url = "/contact"
 
 [[params.landing.feature_icons.tile]]
 icon = "fa-heartbeat"
@@ -134,6 +137,7 @@ icon_pack = "fas"
 accent = "3"
 title = "Heart Healthy"
 text = "High Intensity Classes to get your blood pumping"
+url = "/class_schedule"
 
 [params.landing.feature_images]
 #These feature images look best if there's an even number of them.
