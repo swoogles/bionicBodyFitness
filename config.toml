@@ -33,11 +33,11 @@ weight = 3
  parent = "Services"
  weight = 1
 
-# [[menu.main]]
-# name = "Personal Training"
-# url = "/posts"
-# parent = "Services"
-# weight = 2
+ [[menu.main]]
+ name = "Pricing"
+ url = "/prices"
+ parent = "Services"
+ weight = 2
 
 [[menu.main]]
 name = "Videos"
