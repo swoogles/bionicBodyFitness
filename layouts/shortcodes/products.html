@@ -1,0 +1,8 @@
+
+<ul>
+    {{ $products := getJSON "./data/products.json" }}
+    {{ $productsArray := $products.data }}
+    {{ range $productsArray }}
+            {{ partial "product.html" . }}
+    {{ end }}
+</ul>

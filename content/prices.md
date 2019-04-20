@@ -12,4 +12,5 @@ $200.00 for a 10 pack with a membership.
 ### Private lessons
 $500.00 for a 10 pack.
 
-{{ $moviesJ := getJSON "https://www.bionicbodyfitness.com/.netlify/functions/test-list-products" }}
+{{<products>}}
+
