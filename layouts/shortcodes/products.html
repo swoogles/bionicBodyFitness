@@ -1,6 +1,6 @@
 
 <ul>
-    {{ $products := getJSON "/.netlify/functions/test-list-products" }}
+    {{ $products := getJSON "./.netlify/lambdas/test-list-products" }}
     {{ range $products }}
             {{ partial "product.html" . }}
     {{ end }}
