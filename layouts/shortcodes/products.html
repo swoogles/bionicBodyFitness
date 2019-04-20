@@ -1,6 +1,6 @@
 
 <ul>
-    {{ $products := getJSON "./data/products.json" }}
+    {{ $products := getJSON "https://www.bionicbodyfitness.com/.netlify/functions/test-list-products" }}
     {{ $productsArray := $products.data }}
     {{ range $productsArray }}
             {{ partial "product.html" . }}
