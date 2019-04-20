@@ -33,11 +33,11 @@ weight = 3
  parent = "Services"
  weight = 1
 
- [[menu.main]]
- name = "Pricing"
- url = "/prices"
- parent = "Services"
- weight = 2
+[[menu.main]]
+name = "Pricing"
+url = "/prices"
+parent = "Services"
+weight = 2
 
 [[menu.main]]
 name = "Videos"
@@ -129,7 +129,7 @@ icon_pack = "fas"
 accent = "5"
 title = "Weights"
 text = "Targeted, Customized Weight Training"
-url = "/contact"
+url = "/prices"
 
 [[params.landing.feature_icons.tile]]
 icon = "fa-heartbeat"
