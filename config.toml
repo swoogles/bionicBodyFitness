@@ -3,6 +3,10 @@ languageCode = "en-us"
 title = "Bionic Body Fitness"
 theme = "alpha-church"
 
+[caches]
+[caches.getjson]
+maxAge = "10s"
+
 [taxonomies]
 tag = "tags"
 preacher = "preachers"
