@@ -1,2 +1,7 @@
 <p>{{.Name}}<p>
 
+<ul>
+{{ range .Skus }}
+    {{ .Price }}
+{{ end }}
+</ul>
