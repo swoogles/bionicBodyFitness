@@ -1,0 +1,41 @@
+[
+  {
+    "Name": "Private Training - 10 Pack",
+    "Skus": [
+      {
+        "ID": "sku_Euy4ksCdJWGUnZ",
+        "Price": 50000,
+        "Description": "",
+        "Membership": "Anyone"
+      }
+    ]
+  },
+  {
+    "Name": "Group Training - 10 Pack",
+    "Skus": [
+      {
+        "ID": "sku_EuxqKxCggukQxN",
+        "Price": 20000,
+        "Description": "",
+        "Membership": "member"
+      },
+      {
+        "ID": "sku_EuxopjZxuxfaM7",
+        "Price": 22500,
+        "Description": "",
+        "Membership": "non-member"
+      }
+    ]
+  },
+  {
+    "Name": "Class Card - 10 Pack!",
+    "Skus": [
+      {
+        "ID": "sku_EuxgNOUYjIEyFZ",
+        "Price": 12000,
+        "Description": "",
+        "Membership": "Anyone"
+      }
+    ]
+  }
+]
