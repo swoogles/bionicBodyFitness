@@ -3,7 +3,7 @@
 <ul>
 {{ range .Skus }}
     {{ .Price }}
-    <form action="/.netlify/functions/test-submit-stripe-charge" method="POST">
+    <form action="https://www.bionicbodyfitness.com/.netlify/functions/test-charge" method="POST">
         <script
                 src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                 data-key="{{ getenv `"TEST_STRIPE_PUBLIC_KEY"` }}"
