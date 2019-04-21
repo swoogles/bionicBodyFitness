@@ -14,3 +14,4 @@ $500.00 for a 10 pack.
 
 {{<products>}}
 
+{{<test_stripe_payment_form>}}

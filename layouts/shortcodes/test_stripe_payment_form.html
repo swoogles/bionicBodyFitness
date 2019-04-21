@@ -2,9 +2,9 @@
     <script
             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key={{ getenv "TEST_STRIPE_PUBLIC_KEY" }}
-            data-amount="999"
+            data-amount="{{ .Get "Price"}}"
             data-name="Billding Things"
-            data-description="Business stuff!"
+            data-description="Description of item"
             data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
             data-locale="auto">
     </script>

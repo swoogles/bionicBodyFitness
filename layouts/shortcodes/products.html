@@ -4,5 +4,6 @@
     {{/*{{ $products := .Site.Data.bill_products }}*/}}
     {{ range $products }}
             {{ partial "product.html" . }}
+        {{/*{{ . | test_stripe_payment_form }}*/}}
     {{ end }}
 </ul>
