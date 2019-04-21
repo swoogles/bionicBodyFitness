@@ -3,7 +3,25 @@
     {{ $products := getJSON "https://www.bionicbodyfitness.com/.netlify/functions/test-list-products" }}
     {{/*{{ $products := .Site.Data.bill_products }}*/}}
     {{ range $products }}
-            {{ partial "product.html" . }}
+            {{ $stripePublicKey := getenv "TEST_STRIPE_PUBLIC_KEY"}}
+            <p>{{.Name}}<p>
+
+            <ul>
+                {{ range .Skus }}
+                    {{ .Price }}
+                    <form action="https://www.bionicbodyfitness.com/.netlify/functions/test-charge" method="POST">
+                        <script
+                                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                data-key="{{ $stripePublicKey }}"
+                                data-amount="{{ .Price}}"
+                                data-name="Billding Things"
+                                data-description="Description of item"
+                                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                                data-locale="auto">
+                        </script>
+                    </form>
+                {{ end }}
+            </ul>
         {{/*{{ . | test_stripe_payment_form }}*/}}
     {{ end }}
 </ul>

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/swoogles/stripe"
@@ -11,7 +12,7 @@ import (
 func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
 	parameterMap, _ := url.ParseQuery(request.Body)
 	token := parameterMap.Get("stripeToken")
-	stripe.JsonSerialize(parameterMap)
+	fmt.Println(stripe.JsonSerialize(parameterMap))
 
 	//paymentResult := stripe.ExecuteTestStripePaymentWithAmount(token, 350)
 	//productId := "prod_Et1gMmK1DWlq3S"
