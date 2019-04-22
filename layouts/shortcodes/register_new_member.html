@@ -1,7 +1,8 @@
 
-Order Form:
 <form action="https://www.bionicbodyfitness.com/.netlify/functions/register-new-member" method="post" id="payment-form">
-    <input type="email" name="emailaddress">
+    First Name: <input type="text" name="firstName">
+    Last Name: <input type="text" name="lastName">
+    Email Address: <input type="email" name="emailaddress">
     <div class="form-row">
         <label for="card-element">
             Credit or debit card
@@ -37,8 +38,15 @@ Order Form:
 
     function stripeStuff() {
 
+        var style = {
+            base: {
+                // Add your base input styles here. For example:
+                fontSize: '20px',
+                color: "#32325d",
+            }
+        };
         // Create an instance of the card Element.
-        var card = elements.create('card');
+        var card = elements.create('card', {style: style});
 
 // Add an instance of the card Element into the `card-element` <div>.
         card.mount('#card-element');

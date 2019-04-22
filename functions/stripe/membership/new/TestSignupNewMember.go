@@ -15,11 +15,6 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 	//fmt.Println(stripe.JsonSerialize(parameterMap))
 
 	fmt.Println("Request after stripe token replacement: " + stripe.JsonSerialize(request))
-	//paymentResult := stripe.ExecuteTestStripePaymentWithAmount(token, 350)
-	//productId := "prod_Et1gMmK1DWlq3S"
-	//planId := stripe.CreateTestPlan(productId)
-	//customerId := stripe.CreateTestCustomer(token)
-	//subscription := stripe.CreateTestSubscription(planId, customerId)
 
 	customerId := stripe.CreateCustomer("TEST_STRIPE_SECRET_KEY", token, parameterMap.Get("emailaddress"))
 	planId := "plan_EuxyCM45UamtZl" // TODO Serve plans on page and take as param here
