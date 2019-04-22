@@ -12,6 +12,7 @@ $200.00 for a 10 pack with a membership.
 ### Private lessons
 $500.00 for a 10 pack.
 
+{{<register_new_member>}}
+
 {{<products>}}
 
-{{<test_stripe_payment_form>}}
