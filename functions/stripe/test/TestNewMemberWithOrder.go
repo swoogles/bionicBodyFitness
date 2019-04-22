@@ -21,14 +21,14 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 	//customerId := stripe.CreateTestCustomer(token)
 	//subscription := stripe.CreateTestSubscription(planId, customerId)
 
-	stripe.CreateCustomer("TEST_STRIPE_SECRET_KEY", token)
+	customerId := stripe.CreateCustomer("TEST_STRIPE_SECRET_KEY", token)
+	paymentId := stripe.CreateOrder("sku_EuxgNOUYjIEyFZ", "TEST_STRIPE_SECRET_KEY", customerId)
 	//stripe.CreateOrder("TEST_STRIPE_SECRET_KEY", token)
-	result := stripe.ExecuteStripePaymentWithAmount(token, 123, "TEST_STRIPE_SECRET_KEY")
 	// TODO get some info about the charge, and then decide where to reroute
 
 	return &events.APIGatewayProxyResponse{
 		StatusCode: 200,
-		Body:       "new customer with order: " + result,
+		Body:       "new customer with order: " + paymentId,
 	}, nil
 }
 
