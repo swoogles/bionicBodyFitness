@@ -27,7 +27,7 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 
 	return &events.APIGatewayProxyResponse{
 		StatusCode: 200,
-		Body:       "new customer with order: " + subscriptionId,
+		Body:       "new membership subscription id: " + subscriptionId,
 	}, nil
 }
 
