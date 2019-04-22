@@ -12,9 +12,9 @@ import (
 func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
 	parameterMap, _ := url.ParseQuery(request.Body)
 	token := parameterMap.Get("stripeToken")
-	fmt.Println(stripe.JsonSerialize(parameterMap))
+	//fmt.Println(stripe.JsonSerialize(parameterMap))
 
-	fmt.Println(stripe.JsonSerialize(request))
+	fmt.Println("Request after stripe token replacement: " + stripe.JsonSerialize(request))
 	//paymentResult := stripe.ExecuteTestStripePaymentWithAmount(token, 350)
 	//productId := "prod_Et1gMmK1DWlq3S"
 	//planId := stripe.CreateTestPlan(productId)
