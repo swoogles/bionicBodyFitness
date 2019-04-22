@@ -21,7 +21,7 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 	//customerId := stripe.CreateTestCustomer(token)
 	//subscription := stripe.CreateTestSubscription(planId, customerId)
 
-	customerId := stripe.CreateCustomer("TEST_STRIPE_SECRET_KEY", token)
+	customerId := stripe.CreateCustomer("TEST_STRIPE_SECRET_KEY", token, parameterMap.Get("stripeToken"))
 	paymentId := stripe.CreateOrder("sku_EuxgNOUYjIEyFZ", "TEST_STRIPE_SECRET_KEY", customerId)
 	//stripe.CreateOrder("TEST_STRIPE_SECRET_KEY", token)
 	// TODO get some info about the charge, and then decide where to reroute
