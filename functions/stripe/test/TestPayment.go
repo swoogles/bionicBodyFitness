@@ -14,6 +14,7 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 	token := parameterMap.Get("stripeToken")
 	fmt.Println(stripe.JsonSerialize(parameterMap))
 
+	stripe.JsonSerialize(request)
 	//paymentResult := stripe.ExecuteTestStripePaymentWithAmount(token, 350)
 	//productId := "prod_Et1gMmK1DWlq3S"
 	//planId := stripe.CreateTestPlan(productId)

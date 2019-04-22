@@ -8,7 +8,8 @@
 
             <ul>
                 {{ range .Skus }}
-                    {{ .Price }}
+                    Sku ID: {{ .ID }}
+                    Sku Price: {{ .Price }}
                     <form action="https://www.bionicbodyfitness.com/.netlify/functions/test-charge" method="POST">
                         <script
                                 src="https://checkout.stripe.com/checkout.js" class="stripe-button"
