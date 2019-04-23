@@ -7,5 +7,7 @@ tags: ""
 draft: false
 ---
 Congratulations on starting your journey to better fitness! 
+
 You are able to participate in classes immediately!
+
 [Class Schedule](/class_schedule)
