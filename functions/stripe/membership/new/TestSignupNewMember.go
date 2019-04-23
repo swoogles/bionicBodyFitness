@@ -5,6 +5,7 @@ import (
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/swoogles/stripe"
+	"net/http"
 	"net/url"
 )
 
@@ -18,12 +19,21 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 
 	customerId := stripe.CreateCustomer("TEST_STRIPE_SECRET_KEY", token, parameterMap.Get("emailaddress"))
 	planId := "plan_EuxyCM45UamtZl" // TODO Serve plans on page and take as param here
-	subscriptionId := stripe.CreateSubscription("TEST_STRIPE_SECRET_KEY", planId, customerId)
+
+	stripe.CreateSubscription("TEST_STRIPE_SECRET_KEY", planId, customerId)
+
+	//return &events.APIGatewayProxyResponse{
+	//	StatusCode: 303,
+	//	Body:       "new membership subscription id: " + subscriptionId,
+	//}, nil
 
 	return &events.APIGatewayProxyResponse{
-		StatusCode: 200,
-		Body:       "new membership subscription id: " + subscriptionId,
+		StatusCode: http.StatusPermanentRedirect,
+		Headers: map[string]string{
+			"location": "/contact_thanks",
+		},
 	}, nil
+
 }
 
 func main() {
