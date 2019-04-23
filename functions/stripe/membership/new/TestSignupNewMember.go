@@ -30,7 +30,7 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 	return &events.APIGatewayProxyResponse{
 		StatusCode: http.StatusPermanentRedirect,
 		Headers: map[string]string{
-			"location": "/contact_thanks",
+			"location": "/contact_thanks/",
 		},
 	}, nil
 
