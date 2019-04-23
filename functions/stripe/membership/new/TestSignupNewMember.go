@@ -28,7 +28,7 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 	//}, nil
 
 	return &events.APIGatewayProxyResponse{
-		StatusCode: http.StatusPermanentRedirect,
+		StatusCode: http.StatusMovedPermanently,
 		Headers: map[string]string{
 			"location": "/contact_thanks/",
 		},
