@@ -16,10 +16,11 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 	fmt.Println(billStripe.JsonSerialize(request))
 	fmt.Println("Request.Body: ")
 	fmt.Println(billStripe.JsonSerialize(request.Body))
+	fmt.Println("m: ")
+	fmt.Println(billStripe.JsonSerialize(m))
 	// Token is created using Checkout or Elements!
 	// Get the payment token ID submitted by the form:
 
-	fullLineupData := "faux payment response"
 	// TODO get some info about the charge, and then decide where to reroute
 
 	return &events.APIGatewayProxyResponse{
