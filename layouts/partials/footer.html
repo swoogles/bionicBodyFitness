@@ -28,6 +28,8 @@
 {{ $ie := resources.Get "js/ie/respond.min.js" | minify | fingerprint }}
 {{ $main := resources.Get "js/main.js" | minify | fingerprint }}
 {{ $maps := resources.Get "/js/osmaps.init.js" | minify | fingerprint }}
+{{/*TODO Figure out how/what hugo is doing with the other JS libraries with these named imports*/}}
+<script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 {{ $plyr := resources.Get "/js/plyr.init.js" | minify | fingerprint }}
 {{ "<!-- Scripts-HTML5up -->" | safeHTML }}
 <script src="{{ $jquery.RelPermalink }}" integrity="{{ $jquery.Data.Integrity }}" crossorigin="anonymous"></script>
