@@ -1,7 +1,7 @@
 
 <ul>
-    {{ $products := getJSON "https://www.bionicbodyfitness.com/.netlify/functions/test-list-products" }}
-    {{/*{{ $products := .Site.Data.bill_products }}*/}}
+    {{/*{{ $products := getJSON "https://www.bionicbodyfitness.com/.netlify/functions/test-list-products" }}*/}}
+    {{ $products := .Site.Data.bill_products }}
     {{ range $products }}
             {{ $stripePublicKey := getenv "TEST_STRIPE_PUBLIC_KEY"}}
             <p>{{.Name}}<p>
@@ -11,10 +11,15 @@
                     Sku ID: {{ .ID }}
                     Sku Price: {{ .Price }}
                     <form action="https://www.bionicbodyfitness.com/.netlify/functions/test-charge" method="POST">
+                        <!-- TODO Figure out how to Order a Product, rather than make a disconnected charge
+                             Then I shouldn't need to fiddle with a price here.
+                             TODO Determine CustomerID, if it is a returning Customer
+                        -->
                         <script
                                 src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                                 data-key="{{ $stripePublicKey }}"
                                 data-amount="{{ .Price}}"
+                                data-product="{{ .ID }}"
                                 data-name="Billding Things"
                                 data-description="Description of item"
                                 data-image="https://stripe.com/img/documentation/checkout/marketplace.png"

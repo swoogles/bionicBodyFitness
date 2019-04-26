@@ -2,7 +2,10 @@
 
 ### Classes
 $75.00 per month for unlimited classes, 
-$120.00 for a 10 punch card, $15.00 per class for drop in.
+
+$120.00 for a 10 punch card, 
+
+$15.00 per class for drop in.
 
 
 ### Group Personal Training
