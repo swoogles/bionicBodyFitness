@@ -10,6 +10,8 @@ import (
 )
 
 func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
+	fmt.Println("Request: ")
+	fmt.Println(billStripe.JsonSerialize(request))
 	out, _ := json.Marshal(GetPunchCards())
 	fmt.Println(string(out))
 	return &events.APIGatewayProxyResponse{
