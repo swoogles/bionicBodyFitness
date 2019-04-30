@@ -41,7 +41,25 @@
         console.log(user);
         if (user !== null) {
             console.log("We're ready to do some user stuff!");
-            var stripeData = {
+            $.ajax({
+                url: '/.netlify/functions/find-stripe-customer',
+                type: 'GET',
+                contentType: 'application/json',
+                data: {
+                    email: user.email
+                },
+                success: function (result) {
+                    console.log("Success Find Customer!");
+                    console.log(result);
+                    // CallBack(result);
+                },
+                error: function (error) {
+                    console.log("Failure Find Customer!");
+                    console.log(error);
+
+                }
+            });
+            let stripeData = {
                 data: {
                     stripe_customer_id: 'stripe_customer_id__BILL'
                 }
