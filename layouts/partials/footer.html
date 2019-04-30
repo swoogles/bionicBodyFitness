@@ -44,7 +44,7 @@
             $.ajax({
                 url: '/.netlify/identity/user',
                 type: 'GET',
-                contentType: 'application/json'
+                contentType: 'application/json',
                 headers: {
                     'Authorization': 'Bearer ' + user.token.access_token
                 },
