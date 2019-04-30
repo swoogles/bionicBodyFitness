@@ -29,8 +29,6 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 	fmt.Println("Request: ")
 	fmt.Println(billStripe.JsonSerialize(request))
 
-	// TODO get some info about the charge, and then decide where to reroute
-
 	return &events.APIGatewayProxyResponse{
 		StatusCode: 200,
 		Body:       billStripe.JsonSerialize(customer),
