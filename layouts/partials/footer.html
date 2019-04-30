@@ -39,6 +39,28 @@
         netlifyIdentity.on('init', user => console.log('init', user));
 
         console.log(user);
+        if (user !== null) {
+            console.log("We're ready to do some user stuff!");
+            $.ajax({
+                url: '/.netlify/identity/user',
+                type: 'GET',
+                contentType: 'application/json'
+                headers: {
+                    'Authorization': 'Bearer ' + user.token.access_token
+                },
+                success: function (result) {
+                    console.log("Success!");
+                    console.log(result);
+                    // CallBack(result);
+                },
+                error: function (error) {
+                    console.log("Failure!");
+                    console.log(error);
+
+                }
+            });
+
+        }
 
     }
 
