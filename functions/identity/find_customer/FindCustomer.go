@@ -16,6 +16,7 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 		email = request.PathParameters["email"]
 	}
 
+	fmt.Println("About to lookup Stripe customer")
 	customer, err := billStripe.FindCustomer("TEST_STRIPE_SECRET_KEY", email)
 	if err != nil {
 		fmt.Println("Customer lookup error: " + err.Error())
@@ -28,7 +29,6 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 
 	fmt.Println("Request: ")
 	fmt.Println(billStripe.JsonSerialize(request))
-
 	return &events.APIGatewayProxyResponse{
 		StatusCode: 200,
 		Body:       billStripe.JsonSerialize(customer),
