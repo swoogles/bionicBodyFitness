@@ -16,7 +16,7 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 		email = request.PathParameters["email"]
 	}
 
-	fmt.Println("About to lookup Stripe customer")
+	fmt.Println("About to lookup Stripe customer. email: " + email)
 	customer, err := billStripe.FindCustomer("TEST_STRIPE_SECRET_KEY", email)
 	if err != nil {
 		fmt.Println("Customer lookup error: " + err.Error())
