@@ -41,6 +41,30 @@
         console.log(user);
         if (user !== null) {
             console.log("We're ready to do some user stuff!");
+            var stripeData = {
+                data: {
+                    stripe_customer_id: 'stripe_customer_id__BILL'
+                }
+            };
+            $.ajax({
+                url: '/.netlify/identity/user',
+                type: 'PUT',
+                contentType: 'application/json',
+                data: JSON.stringify(stripeData),
+                headers: {
+                    'Authorization': 'Bearer ' + user.token.access_token
+                },
+                success: function (result) {
+                    console.log("Success PUT!");
+                    console.log(result);
+                    // CallBack(result);
+                },
+                error: function (error) {
+                    console.log("Failure PUT!");
+                    console.log(error);
+
+                }
+            });
             $.ajax({
                 url: '/.netlify/identity/user',
                 type: 'GET',
@@ -49,12 +73,12 @@
                     'Authorization': 'Bearer ' + user.token.access_token
                 },
                 success: function (result) {
-                    console.log("Success!");
+                    console.log("Success GET!");
                     console.log(result);
                     // CallBack(result);
                 },
                 error: function (error) {
-                    console.log("Failure!");
+                    console.log("Failure GET!");
                     console.log(error);
 
                 }
