@@ -39,6 +39,7 @@
         netlifyIdentity.on('init', user => console.log('init', user));
 
         console.log(user);
+        var stripeCustomerId;
         if (user !== null) {
             console.log("We're ready to do some user stuff!");
             $.ajax({
@@ -51,57 +52,62 @@
                 success: function (result) {
                     console.log("Success Find Customer!");
                     console.log(result);
+                    stripeCustomerId = result.ID;
                     // CallBack(result);
                 },
                 error: function (error) {
                     console.log("Failure Find Customer!");
                     console.log(error);
+                    stripeCustomerId = "";
 
                 }
             });
-            let stripeData = {
-                data: {
-                    stripe_customer_id: 'stripe_customer_id__BILL'
-                }
-            };
-            $.ajax({
-                url: '/.netlify/identity/user',
-                type: 'PUT',
-                contentType: 'application/json',
-                data: JSON.stringify(stripeData),
-                headers: {
-                    'Authorization': 'Bearer ' + user.token.access_token
-                },
-                success: function (result) {
-                    console.log("Success PUT!");
-                    console.log(result);
-                    // CallBack(result);
-                },
-                error: function (error) {
-                    console.log("Failure PUT!");
-                    console.log(error);
+            if (stripeCustomerId) {
+                let stripeData = {
+                    data: {
+                        stripe_customer_id: stripeCustomerId
+                    }
+                };
+                console.log("There is an existing Stripe customer, so we'll attach it to Identity user.")
+                $.ajax({
+                    url: '/.netlify/identity/user',
+                    type: 'PUT',
+                    contentType: 'application/json',
+                    data: JSON.stringify(stripeData),
+                    headers: {
+                        'Authorization': 'Bearer ' + user.token.access_token
+                    },
+                    success: function (result) {
+                        console.log("Success PUT!");
+                        console.log(result);
+                        // CallBack(result);
+                    },
+                    error: function (error) {
+                        console.log("Failure PUT!");
+                        console.log(error);
 
-                }
-            });
-            $.ajax({
-                url: '/.netlify/identity/user',
-                type: 'GET',
-                contentType: 'application/json',
-                headers: {
-                    'Authorization': 'Bearer ' + user.token.access_token
-                },
-                success: function (result) {
-                    console.log("Success GET!");
-                    console.log(result);
-                    // CallBack(result);
-                },
-                error: function (error) {
-                    console.log("Failure GET!");
-                    console.log(error);
+                    }
+                });
+                $.ajax({
+                    url: '/.netlify/identity/user',
+                    type: 'GET',
+                    contentType: 'application/json',
+                    headers: {
+                        'Authorization': 'Bearer ' + user.token.access_token
+                    },
+                    success: function (result) {
+                        console.log("Success GET!");
+                        console.log(result);
+                        // CallBack(result);
+                    },
+                    error: function (error) {
+                        console.log("Failure GET!");
+                        console.log(error);
 
-                }
-            });
+                    }
+                });
 
+            }
         }
 
     }
