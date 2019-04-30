@@ -12,8 +12,14 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 
 	parameterMap, _ := url.ParseQuery(request.Body)
 	email := parameterMap.Get("email")
+	fmt.Println("Email: " + email)
 	if email == "" {
+		fmt.Println("Trying to get Pathparam")
 		email = request.PathParameters["email"]
+	}
+	if email == "" {
+		fmt.Println("Trying to get QueryString")
+		email = request.QueryStringParameters["email"]
 	}
 
 	fmt.Println("About to lookup Stripe customer. email: " + email)
