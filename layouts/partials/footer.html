@@ -53,7 +53,8 @@
                     console.log("Success Find Customer!");
                     console.log(result);
                     console.log("ID: " + result.ID);
-                    stripeCustomerId = result.ID;
+                    let resultJson = JSON.parse(result);
+                    stripeCustomerId = resultJson.ID;
                     // CallBack(result);
                 },
                 error: function (error) {
