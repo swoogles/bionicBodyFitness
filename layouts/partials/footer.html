@@ -76,27 +76,27 @@
                             console.log("Success PUT!");
                             console.log(result);
                             // CallBack(result);
+                            $.ajax({
+                                url: '/.netlify/identity/user',
+                                type: 'GET',
+                                contentType: 'application/json',
+                                headers: {
+                                    'Authorization': 'Bearer ' + user.token.access_token
+                                },
+                                success: function (result) {
+                                    console.log("Success GET!");
+                                    console.log(result);
+                                    // CallBack(result);
+                                },
+                                error: function (error) {
+                                    console.log("Failure GET!");
+                                    console.log(error);
+
+                                }
+                            });
                         },
                         error: function (error) {
                             console.log("Failure PUT!");
-                            console.log(error);
-
-                        }
-                    });
-                    $.ajax({
-                        url: '/.netlify/identity/user',
-                        type: 'GET',
-                        contentType: 'application/json',
-                        headers: {
-                            'Authorization': 'Bearer ' + user.token.access_token
-                        },
-                        success: function (result) {
-                            console.log("Success GET!");
-                            console.log(result);
-                            // CallBack(result);
-                        },
-                        error: function (error) {
-                            console.log("Failure GET!");
                             console.log(error);
 
                         }
