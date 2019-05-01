@@ -45,15 +45,15 @@
             $.ajax({
                 url: '/.netlify/functions/find-stripe-customer',
                 type: 'GET',
-                contentType: 'json',
+                contentType: 'application/json',
                 data: {
                     email: user.email
                 },
                 success: function (result) {
                     console.log("Success Find Customer!");
                     console.log(result);
-                    console.log("ID: " + result.ID);
                     let resultJson = JSON.parse(result);
+                    console.log("resultJson: " + resultJson);
                     stripeCustomerId = resultJson.ID;
                     // CallBack(result);
                 },
