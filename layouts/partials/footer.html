@@ -32,24 +32,7 @@
 <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script type="text/javascript">
     console.log("Doing anything");
-    function identityStuff() {
-        console.log("Applying callback to login")
-        const user = netlifyIdentity.currentUser();
-        netlifyIdentity.on('login', user => console.log('login', user));
-        netlifyIdentity.on('init', user => console.log('init', user));
-
-        console.log(user);
-        var stripeCustomerId;
-        if (user !== null) {
-            console.log("We're ready to do some user stuff!");
-            $.ajax({
-                url: '/.netlify/functions/find-stripe-customer',
-                type: 'GET',
-                contentType: 'application/json',
-                data: {
-                    email: user.email
-                },
-                success: function (result) {
+    function handleExistingCustomer(result) {
                     console.log("Success Find Customer!");
                     console.log(result);
                     let resultJson = JSON.parse(result);
@@ -101,15 +84,35 @@
 
                         }
                     });
-                },
-                error: function (error) {
-                    console.log("Failure Find Customer!");
-                    console.log(error);
-                    stripeCustomerId = "";
-
                 }
-            });
-            if (stripeCustomerId) {
+    function identityStuff() {
+        console.log("Applying callback to login")
+        const user = netlifyIdentity.currentUser();
+        netlifyIdentity.on('login', user => console.log('login', user));
+        netlifyIdentity.on('init', user => console.log('init', user));
+
+        var stripeCustomerId;
+        if (user !== null) {
+            console.log("We're ready to do some user stuff!");
+            console.log(user.user_metadata);
+            if (!user.user_metadata.hasOwnProperty("stripe_customer_id")) {
+                $.ajax({
+                    url: '/.netlify/functions/find-stripe-customer',
+                    type: 'GET',
+                    contentType: 'application/json',
+                    data: {
+                        email: user.email
+                    },
+                    success: handleExistingCustomer,
+                    error: function (error) {
+                        console.log("Failure Find Customer!");
+                        console.log(error);
+                        stripeCustomerId = "";
+
+                    }
+                });
+            } else {
+                console.log("We already have a Stripe customer. No need to re-retrieve :)")
 
             }
         }
