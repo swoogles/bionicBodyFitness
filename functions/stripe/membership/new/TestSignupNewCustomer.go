@@ -17,16 +17,8 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 
 	fmt.Println("Request after stripe token replacement: " + stripe.JsonSerialize(request))
 
-	customerId := stripe.CreateCustomer("TEST_STRIPE_SECRET_KEY", token, parameterMap.Get("emailaddress"))
-	planId := "plan_EuxyCM45UamtZl" // TODO Serve plans on page and take as param here
-
-	stripe.CreateSubscription("TEST_STRIPE_SECRET_KEY", planId, customerId)
-
-	//return &events.APIGatewayProxyResponse{
-	//	StatusCode: 303,
-	//	Body:       "new membership subscription id: " + subscriptionId,
-	//}, nil
-
+	customerId := stripe.CreateCustomer("TEST_STRIPE_SECRET_KEY", token, parameterMap.Get("emailaddress"), "name")
+	fmt.Println(customerId)
 	return &events.APIGatewayProxyResponse{
 		StatusCode: http.StatusMovedPermanently,
 		Headers: map[string]string{
