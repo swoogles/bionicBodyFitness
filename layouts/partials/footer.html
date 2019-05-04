@@ -33,7 +33,6 @@
 <script type="text/javascript">
     console.log("Doing anything");
     function handleExistingCustomer(customerResult) {
-        if (customerResult != null) {
             console.log("Attaching existing Stripe customer, to Identity user. Customer: " + customerResult);
             let stripeCustomerId = JSON.parse(customerResult).ID;
 
@@ -59,7 +58,6 @@
 
                 }
             });
-        }
     }
 
     function createNewStripeCustomer(name, email) {
@@ -100,11 +98,18 @@
                     data: {
                         email: user.email
                     },
-                    success: handleExistingCustomer,
+                    success: function(result) {
+                        if (result != null) {
+                            handleExistingCustomer(result);
+                        } else {
+                            console.log("A: existing customer not found. Need to create one.");
+                            createNewStripeCustomer(user.name, user.email)
+                        }
+                    },
                     error: function (error) {
                         console.log("Failure Find Customer!");
                         if (error.status === 404) {
-                            console.log("existing customer not found. Need to create one.");
+                            console.log("B: existing customer not found. Need to create one.");
                             createNewStripeCustomer(user.name, user.email)
                         } else {
                             console.log("Unhandled error: " + error)
