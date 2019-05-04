@@ -1,6 +1,6 @@
 
 <ul>
-    {{ $plans := getJSON "/.netlify/functions/list-plans" }}
+    {{ $plans := getJSON "https://www.bionicbodyfitness.com/.netlify/functions/list-plans" }}
     {{/*{{ $plans := .Site.Data.plans }}*/}}
     {{ range $plans }}
             {{ $stripePublicKey := getenv "TEST_STRIPE_PUBLIC_KEY"}}
