@@ -9,6 +9,8 @@ import (
 
 func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
 	email := request.QueryStringParameters["email"]
+	x := "hi"
+	fmt.Println(x)
 
 	customer, err := billStripe.FindCustomer("TEST_STRIPE_SECRET_KEY", email)
 	if err != nil {

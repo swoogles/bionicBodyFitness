@@ -33,69 +33,64 @@
 <script type="text/javascript">
     console.log("Doing anything");
     function handleExistingCustomer(result) {
-                    console.log("Success Find Customer!");
-                    console.log(result);
-                    let resultJson = JSON.parse(result);
-                    console.log("resultJson: " + resultJson);
-                    console.log("resultJson.ID: " + resultJson.ID);
-                    stripeCustomerId = resultJson.ID;
-                    // CallBack(result);
+        console.log("Attaching existing Stripe customer, to Identity user.")
+        let stripeCustomerId = JSON.parse(result).ID;
 
-                    let stripeData = {
-                        data: {
-                            stripe_customer_id: stripeCustomerId
-                        }
-                    };
-                    console.log("There is an existing Stripe customer, so we'll attach it to Identity user.")
-                    $.ajax({
-                        url: '/.netlify/identity/user',
-                        type: 'PUT',
-                        contentType: 'application/json',
-                        data: JSON.stringify(stripeData),
-                        headers: {
-                            'Authorization': 'Bearer ' + user.token.access_token
-                        },
-                        success: function (result) {
-                            console.log("Success PUT!");
-                            console.log(result);
-                            // CallBack(result);
-                            $.ajax({
-                                url: '/.netlify/identity/user',
-                                type: 'GET',
-                                contentType: 'application/json',
-                                headers: {
-                                    'Authorization': 'Bearer ' + user.token.access_token
-                                },
-                                success: function (result) {
-                                    console.log("Success GET!");
-                                    console.log(result);
-                                    // CallBack(result);
-                                },
-                                error: function (error) {
-                                    console.log("Failure GET!");
-                                    console.log(error);
+        let stripeData = {
+            data: {
+                stripe_customer_id: stripeCustomerId
+            }
+        };
+        $.ajax({
+            url: '/.netlify/identity/user',
+            type: 'PUT',
+            contentType: 'application/json',
+            data: JSON.stringify(stripeData),
+            headers: {
+                'Authorization': 'Bearer ' + user.token.access_token
+            },
+            success: function (result) {
+                console.log("Successfuly attached stripe_customer_id to user!");
+            },
+            error: function (error) {
+                console.log("Failure PUT!");
+                console.log(error);
 
-                                }
-                            });
-                        },
-                        error: function (error) {
-                            console.log("Failure PUT!");
-                            console.log(error);
+            }
+        });
+    }
 
-                        }
-                    });
-                }
+    function createNewStripeCustomer(name, email) {
+        $.ajax({
+            url: '/.netlify/functions/create-stripe-customer',
+            type: 'POST',
+            contentType: 'application/json',
+            data: {
+                email: email,
+                name: name
+            },
+            success: function (result) {
+                console.log("Created new stripe customer for user.");
+            },
+            error: function (error) {
+                console.log("Failure to create customer");
+                    console.log(error);
+            }
+        });
+    }
+
     function identityStuff() {
         console.log("Applying callback to login")
         const user = netlifyIdentity.currentUser();
         netlifyIdentity.on('login', user => console.log('login', user));
         netlifyIdentity.on('init', user => console.log('init', user));
 
-        var stripeCustomerId;
         if (user !== null) {
             console.log("We're ready to do some user stuff!");
             console.log(user.user_metadata);
-            if (!user.user_metadata.hasOwnProperty("stripe_customer_id")) {
+            if (user.user_metadata.hasOwnProperty("stripe_customer_id")) {
+                console.log("We already have a Stripe customer. No need to re-retrieve :)")
+            } else {
                 $.ajax({
                     url: '/.netlify/functions/find-stripe-customer',
                     type: 'GET',
@@ -106,14 +101,14 @@
                     success: handleExistingCustomer,
                     error: function (error) {
                         console.log("Failure Find Customer!");
-                        console.log(error);
-                        stripeCustomerId = "";
-
+                        if (error.status === 404) {
+                            console.log("existing customer not found. Need to create one.");
+                            createNewStripeCustomer(user.name, user.email)
+                        } else {
+                            console.log("Unhandled error: " + error)
+                        }
                     }
                 });
-            } else {
-                console.log("We already have a Stripe customer. No need to re-retrieve :)")
-
             }
         }
 
