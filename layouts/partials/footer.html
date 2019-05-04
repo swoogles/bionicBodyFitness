@@ -33,7 +33,7 @@
 <script type="text/javascript">
     console.log("Doing anything");
     function handleExistingCustomer(result) {
-        console.log("Attaching existing Stripe customer, to Identity user.")
+        console.log("Attaching existing Stripe customer, to Identity user. Customer: " + result);
         let stripeCustomerId = JSON.parse(result).ID;
 
         let stripeData = {
@@ -62,7 +62,7 @@
 
     function createNewStripeCustomer(name, email) {
         $.ajax({
-            url: '/.netlify/functions/create-stripe-customer',
+            url: 'https://www.bionicbodyfitness.com/.netlify/functions/create-stripe-customer',
             type: 'POST',
             contentType: 'application/json',
             data: {
@@ -73,7 +73,7 @@
                 console.log("Created new stripe customer for user.");
             },
             error: function (error) {
-                console.log("Failure to create customer");
+                console.log("Failed to create stripe customer.");
                     console.log(error);
             }
         });
