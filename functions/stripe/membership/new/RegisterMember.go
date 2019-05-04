@@ -9,11 +9,9 @@ import (
 	"net/url"
 )
 
-// TODO Get this fully reduced to the AWS request/response junk
 func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
 	parameterMap, _ := url.ParseQuery(request.Body)
 	token := parameterMap.Get("stripeToken")
-	//fmt.Println(stripe.JsonSerialize(parameterMap))
 
 	fmt.Println("Request after stripe token replacement: " + stripe.JsonSerialize(request))
 
@@ -23,6 +21,7 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 		parameterMap.Get("email"),
 		parameterMap.Get("name"),
 	)
+	// TODO Get planId and create a subscription with it.
 	fmt.Println(customerId)
 	return &events.APIGatewayProxyResponse{
 		StatusCode: http.StatusMovedPermanently,

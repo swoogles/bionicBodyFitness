@@ -1,0 +1,18 @@
+
+<ul>
+    {{ $plans := getJSON "/.netlify/functions/list-plans" }}
+    {{/*{{ $plans := .Site.Data.bill_products }}*/}}
+    {{ range $plans }}
+            {{ $stripePublicKey := getenv "TEST_STRIPE_PUBLIC_KEY"}}
+            <h3>{{.Name}}</h3>
+                    Plan ID: {{ .ID }}
+                    Plan Price: {{ .Price }}
+                    Plan Interval: {{ .Interval }}
+                    <form action="https://www.bionicbodyfitness.com/.netlify/functions/register-new-member" method="POST">
+                        <!-- TODO Intercept form submission.
+                             TODO Determine CustomerID, if it is a returning Customer
+                        -->
+                    </form>
+        {{/*{{ . | test_stripe_payment_form }}*/}}
+    {{ end }}
+</ul>
