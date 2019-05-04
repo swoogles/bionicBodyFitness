@@ -35,13 +35,22 @@
     let stripe = Stripe({{getenv "TEST_STRIPE_PUBLIC_KEY"}});
     let elements = stripe.elements();
 
-    function stripeTokenHandler(token) {
+    var style = {
+        base: {
+            // Add your base input styles here. For example:
+            fontSize: '20px',
+            color: "#32325d",
+        }
+    };
+    var card = elements.create('card', {style: style});
+
+    function stripeTokenHandler(token, planId) {
         const user = netlifyIdentity.currentUser();
         console.log("User during stripe form submission");
         console.log(user);
 
         // Insert the token ID into the form so it gets submitted to the server
-        var form = document.getElementById('payment-form');
+        var form = document.getElementById(planId);
 
         var hiddenInput = document.createElement('input');
         hiddenInput.setAttribute('type', 'hidden');
@@ -65,16 +74,52 @@
         form.submit();
     }
 
-    function stripeStuff() {
+    function subscriptionForms() {
+        // var style = {
+        //     base: {
+        //         // Add your base input styles here. For example:
+        //         fontSize: '20px',
+        //         color: "#32325d",
+        //     }
+        // };
+        //
+        // var card = elements.create('card', {style: style});
+        // card.mount('#card-element');
+        //
+        // card.addEventListener('change', function (event) {
+        //     var displayError = document.getElementById('card-errors');
+        //     if (event.error) {
+        //         displayError.textContent = event.error.message;
+        //     } else {
+        //         displayError.textContent = '';
+        //     }
+        // });
+
+        var forms = document.getElementsByClassName('payment-form');
+        $.each(forms, function (idx, form)
+        {
+            var planId = form.id;
+
+            console.log("Overriding submission for form: " + idx);
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                stripe.createToken(window.card).then(function (result) {
+                    if (result.error) {
+                        // Inform the customer that there was an error.
+                        var errorElement = document.getElementById('card-errors');
+                        errorElement.textContent = result.error.message;
+                    } else {
+                        stripeTokenHandler(result.token, form.id);
+                    }
+                });
+            });
+        });
+    }
+
+    function setupCardElement() {
+
         if ($('#card-element').length) {
-            var style = {
-                base: {
-                    // Add your base input styles here. For example:
-                    fontSize: '20px',
-                    color: "#32325d",
-                }
-            };
-            var card = elements.create('card', {style: style});
             card.mount('#card-element');
 
             card.addEventListener('change', function (event) {
@@ -85,6 +130,11 @@
                     displayError.textContent = '';
                 }
             });
+        }
+    }
+
+    function stripeStuff() {
+        if ($('#payment-form').length) {
 
             // Create a token or display an error when the form is submitted.
             var form = document.getElementById('payment-form');
@@ -211,6 +261,8 @@
     }
 
     function fullOnLoad() {
+        setupCardElement();
+        subscriptionForms();
         stripeStuff();
         identityStuff();
     }

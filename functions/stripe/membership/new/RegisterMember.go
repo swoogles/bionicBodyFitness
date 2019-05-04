@@ -15,11 +15,12 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 
 	fmt.Println("Request after stripe token replacement: " + stripe.JsonSerialize(request))
 
-	customerId := stripe.CreateCustomer(
+	customerId := stripe.CreateCustomerAndSubscribeToPlan(
 		"TEST_STRIPE_SECRET_KEY",
 		token,
 		parameterMap.Get("email"),
 		parameterMap.Get("name"),
+		parameterMap.Get("planId"),
 	)
 	// TODO Get planId and create a subscription with it.
 	fmt.Println(customerId)
