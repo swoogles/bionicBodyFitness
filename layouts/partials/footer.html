@@ -99,7 +99,7 @@
                         email: user.email
                     },
                     success: function(result) {
-                        if (result != null) {
+                        if (result != null && result !== "null") {
                             handleExistingCustomer(result);
                         } else {
                             console.log("A: existing customer not found. Need to create one.");
