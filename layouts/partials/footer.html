@@ -32,7 +32,6 @@
 <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script src="https://js.stripe.com/v3/"></script>
 <script type="text/javascript">
-    console.error("Doing stripe form stuff?!?!");
     let stripe = Stripe({{getenv "TEST_STRIPE_PUBLIC_KEY"}});
     let elements = stripe.elements();
 
@@ -59,7 +58,7 @@
         var hiddenname = document.createElement('input');
         hiddenname.setAttribute('type', 'hidden');
         hiddenname.setAttribute('name', 'name');
-        hiddenname.setAttribute('value', user.name);
+        hiddenname.setAttribute('value', user.user_metadata.full_name);
         form.appendChild(hiddenname);
 
         // Submit the form
@@ -131,7 +130,7 @@
             }
         });
     }
-    function attachCustomerIdToUser(customerResult) {
+    function attachCustomerIdToUser(customerResult, user) {
             console.log("Attaching existing Stripe customer, to Identity user. Customer: " + customerResult);
             let stripeCustomerId = JSON.parse(customerResult).ID;
 
@@ -199,7 +198,7 @@
                         if (result === "null") {
                             console.log("Stripe customer not found. Non-member user.");
                         } else {
-                            attachCustomerIdToUser(result);
+                            attachCustomerIdToUser(result, user);
                         }
                     },
                     error: function (error) {
