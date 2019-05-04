@@ -17,7 +17,12 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 
 	fmt.Println("Request after stripe token replacement: " + stripe.JsonSerialize(request))
 
-	customerId := stripe.CreateCustomer("TEST_STRIPE_SECRET_KEY", token, parameterMap.Get("emailaddress"), "name")
+	customerId := stripe.CreateCustomer(
+		"TEST_STRIPE_SECRET_KEY",
+		token,
+		parameterMap.Get("email"),
+		parameterMap.Get("name"),
+	)
 	fmt.Println(customerId)
 	return &events.APIGatewayProxyResponse{
 		StatusCode: http.StatusMovedPermanently,
