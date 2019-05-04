@@ -31,14 +31,38 @@
 {{/*TODO Figure out how/what hugo is doing with the other JS libraries with these named imports*/}}
 <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script type="text/javascript">
-    console.log("Doing anything");
-    function handleExistingCustomer(customerResult) {
+    function attachRole(user) {
+        console.log("Attaching role to Identity user.");
+
+        let stripeData = {
+            data: {
+                role: "non-member",
+            }
+        };
+        $.ajax({
+            url: 'https://www.bionicbodyfitness.com/.netlify/identity/user',
+            type: 'PUT',
+            contentType: 'application/json',
+            data: JSON.stringify(stripeData),
+            headers: {
+                'Authorization': 'Bearer ' + user.token.access_token
+            },
+            success: function (result) {
+                console.log("Successfuly attached role to user!");
+            },
+            error: function (error) {
+                console.log("Failed to attach role to user");
+                console.log(error);
+            }
+        });
+    }
+    function attachCustomerIdToUser(customerResult) {
             console.log("Attaching existing Stripe customer, to Identity user. Customer: " + customerResult);
             let stripeCustomerId = JSON.parse(customerResult).ID;
 
             let stripeData = {
                 data: {
-                    stripe_customer_id: stripeCustomerId
+                    stripe_customer_id: stripeCustomerId,
                 }
             };
             $.ajax({
@@ -62,7 +86,7 @@
 
     function createNewStripeCustomer(name, email) {
         $.ajax({
-            url: 'https://www.bionicbodyfitness.com/.netlify/functions/create-stripe-customer',
+            url: '/.netlify/functions/create-stripe-customer',
             type: 'POST',
             contentType: 'application/json',
             data: {
@@ -87,7 +111,8 @@
 
         if (user !== null) {
             console.log("We're ready to do some user stuff!");
-            console.log(user.user_metadata);
+            console.log(user);
+            attachRole(user);
             if (user.user_metadata.hasOwnProperty("stripe_customer_id")) {
                 console.log("We already have a Stripe customer. No need to re-retrieve :)")
             } else {
@@ -100,7 +125,7 @@
                     },
                     success: function(result) {
                         if (result != null && result !== "null") {
-                            handleExistingCustomer(result);
+                            attachCustomerIdToUser(result);
                         } else {
                             console.log("A: existing customer not found. Need to create one.");
                             createNewStripeCustomer(user.name, user.email)
@@ -132,7 +157,7 @@
 <script src="{{ $breakpoints.RelPermalink }}" integrity="{{ $breakpoints.Data.Integrity }}" crossorigin="anonymous"></script>
 <script src="{{ $util.RelPermalink }}" integrity="{{ $util.Data.Integrity }}" crossorigin="anonymous"></script>
 <script src="{{ $main.RelPermalink }}" integrity="{{ $main.Data.Integrity }}" crossorigin="anonymous"></script>
-<script src="https://js.stripe.com/v3/"></script>
+{{/*<script src="https://js.stripe.com/v3/"></script>*/}}
 {{ "<!-- Scripts ALPHA-CHURCH-->" | safeHTML }}
 {{ if .Site.Params.bible_popups }}<script src="{{ $bible.RelPermalink }}" integrity="{{ $bible.Data.Integrity }}" crossorigin="anonymous"></script>{{ end }}
 {{ `<!--[if lte IE 8]><script src=" {{ $ie.RelPermalink }} "></script><![endif]-->` | safeHTML}}

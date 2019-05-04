@@ -67,8 +67,6 @@ title = "Bionic Body Fitness"
 subtitle = "Joyce Rossiter"
 author = "Bill Frasure"
 
-customCSS = ["example.css"]
-
 # I wonder what this does...
 bible_popups = true
 instant_page = true
