@@ -1,7 +1,6 @@
 build:
 	mkdir -p lambdas
 	go get ./...
-	go build -o lambdas/live-submit-stripe-charge  ./functions/stripe/live
 	go build -o lambdas/test-list-products  ./functions/stripe/products
 	go build -o lambdas/list-plans  ./functions/stripe/plans
 	go build -o lambdas/after-login  ./functions/identity
