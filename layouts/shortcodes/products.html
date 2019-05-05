@@ -3,7 +3,7 @@
     {{/*{{ $products := getJSON "https://www.bionicbodyfitness.com/.netlify/functions/test-list-products" }}*/}}
     {{ $products := .Site.Data.bill_products }}
     {{ range $products }}
-            {{ $stripePublicKey := getenv "TEST_STRIPE_PUBLIC_KEY"}}
+            {{ $stripePublicKey := getenv "STRIPE_PUBLIC_KEY"}}
             <p>{{.Name}}<p>
 
             <ul>

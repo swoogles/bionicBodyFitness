@@ -1,7 +1,7 @@
 <form action="/.netlify/functions/test-submit-stripe-charge" method="POST">
     <script
             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key={{ getenv "TEST_STRIPE_PUBLIC_KEY" }}
+            data-key={{ getenv "STRIPE_PUBLIC_KEY" }}
             data-amount="{{ .Get "Price"}}"
             data-name="Billding Things"
             data-description="Description of item"

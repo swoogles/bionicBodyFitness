@@ -11,7 +11,7 @@ import (
 func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
 	fmt.Println("Request: ")
 	fmt.Println(billStripe.JsonSerialize(request))
-	out, _ := json.Marshal(billStripe.GetAllPlans("TEST_STRIPE_SECRET_KEY"))
+	out, _ := json.Marshal(billStripe.GetAllPlans("STRIPE_SECRET_KEY"))
 	fmt.Println(string(out))
 	return &events.APIGatewayProxyResponse{
 		StatusCode: 200,

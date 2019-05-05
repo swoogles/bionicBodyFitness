@@ -12,7 +12,7 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 	x := "hi"
 	fmt.Println(x)
 
-	customer, err := billStripe.FindCustomer("TEST_STRIPE_SECRET_KEY", email)
+	customer, err := billStripe.FindCustomer("STRIPE_SECRET_KEY", email)
 	if err != nil {
 		fmt.Println("Customer lookup error: " + err.Error())
 	} else {

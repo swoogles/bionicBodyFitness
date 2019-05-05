@@ -28,5 +28,5 @@ func main() {
 // See your keys here: https://dashboard.stripe.com/account/apikeys
 
 func GetPunchCards() []billStripe.Product {
-	return billStripe.GetAllProductsWithUnsafeType("TEST_STRIPE_SECRET_KEY", string(stripe.ProductTypeGood))
+	return billStripe.GetAllProductsWithUnsafeType("STRIPE_SECRET_KEY", string(stripe.ProductTypeGood))
 }
