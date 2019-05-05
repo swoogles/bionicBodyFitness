@@ -37,17 +37,12 @@ weight = 3
  parent = "Services"
  weight = 1
 
-[[menu.main]]
-name = "Pricing"
-url = "/prices"
-parent = "Services"
-weight = 2
-
-[[menu.main]]
-name = "Register"
-url = "/register_new_member"
-parent = "Services"
-weight = 2
+# TODO Re-enable once single-product purchases are hammered out
+# [[menu.main]]
+# name = "Pricing"
+# url = "/prices"
+# parent = "Services"
+# weight = 2
 
 [[menu.main]]
 name = "Videos"
@@ -56,8 +51,8 @@ parent = "Services"
 weight = 3
 
 [[menu.main]]
-name = "Plans"
-url = "/plans"
+name = "Memberships"
+url = "/memberships"
 parent = "Services"
 weight = 3
 

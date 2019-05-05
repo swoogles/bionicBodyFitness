@@ -8,14 +8,15 @@
 
 <!-- Used to display Element errors. -->
 <div id="card-errors" role="alert"></div>
-<ul>
+<div class="container">
+<div class="row">
     {{ $plans := getJSON "https://www.bionicbodyfitness.com/.netlify/functions/list-plans" }}
     {{/*{{ $plans := .Site.Data.plans }}*/}}
     {{ range $plans }}
-            {{ $stripePublicKey := getenv "TEST_STRIPE_PUBLIC_KEY"}}
+            <div class="col-lg">
+            {{ $stripePublicKey := getenv "STRIPE_PUBLIC_KEY"}}
             <h3>{{.Name}}</h3>
                     {{ .Price }} / {{ .Interval }}
-                <span>
                     <form action="https://www.bionicbodyfitness.com/.netlify/functions/register-new-member" method="POST" class="payment-form" id="{{ .Id }}">
                         <!-- TODO Intercept form submission.
                              TODO Determine CustomerID, if it is a returning Customer
@@ -23,7 +24,8 @@
                         <input type="hidden" name="planId" value="{{.Id}}">
                         <input type="submit" value="Register ">
                     </form>
-                </span>
         {{/*{{ . | test_stripe_payment_form }}*/}}
+    </div>
     {{ end }}
-</ul>
+</div>
+</div>
