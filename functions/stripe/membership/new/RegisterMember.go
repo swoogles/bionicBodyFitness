@@ -21,7 +21,8 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 
 	var customerId string
 	existingCustomerid := parameterMap.Get("stripe_customer_id")
-	if len(existingCustomerid) == 0 {
+	fmt.Println("existingCustomerid: " + existingCustomerid)
+	if existingCustomerid == "undefined" || len(existingCustomerid) == 0 {
 		customerId = stripe.CreateCustomer("STRIPE_SECRET_KEY", token, email, name)
 		fmt.Println("New Customer Id: " + customerId)
 	} else {
