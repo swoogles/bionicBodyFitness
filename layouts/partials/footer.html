@@ -69,6 +69,12 @@
         hiddenname.setAttribute('value', user.user_metadata.full_name);
         form.appendChild(hiddenname);
 
+        var hiddenname = document.createElement('input');
+        hiddenname.setAttribute('type', 'hidden');
+        hiddenname.setAttribute('name', 'stripe_customer_id');
+        hiddenname.setAttribute('value', user.user_metadata.stripe_customer_id);
+        form.appendChild(hiddenname);
+
         form.submit();
     }
 
@@ -195,7 +201,7 @@
         });
     }
 
-    function identityStuff() {
+    function attachExistingStripeCustomerToUser() {
         const user = netlifyIdentity.currentUser();
         netlifyIdentity.on('login', user => console.log('login', user));
         netlifyIdentity.on('init', user => console.log('init', user));
@@ -232,7 +238,7 @@
         setupCardElement();
         subscriptionForms();
         stripeStuff();
-        identityStuff();
+        attachExistingStripeCustomerToUser();
     }
     window.onload = fullOnLoad;
 </script>
