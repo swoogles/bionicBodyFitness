@@ -1,3 +1,3 @@
-# Plans
+## Membership Plans
 
 {{<plans>}}

@@ -21,8 +21,8 @@ url = "/"
 weight = 1
 
 [[menu.main]]
-name = "Trainers"
-url = "/trainers"
+name = "Staff"
+url = "/staff"
 weight = 2
 
 [[menu.main]]
