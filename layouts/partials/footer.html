@@ -44,6 +44,18 @@
     };
     var card = elements.create('card', {style: style});
 
+    function renderIdentityName() {
+
+        const user = netlifyIdentity.currentUser();
+
+        var identityNameElement = $("#identity-name");
+        if (user !== null && identityNameElement !== null) {
+            identityNameElement.text('Logged in Name: ' + user.user_metadata.full_name);
+        } else {
+            identityNameElement.text('You must log in before signing up for a membership.');
+
+        }
+    }
     function addIdentityInfoToPurchase(token, planId) {
         const user = netlifyIdentity.currentUser();
         console.log("User during stripe form submission");
@@ -203,7 +215,12 @@
 
     function attachExistingStripeCustomerToUser() {
         const user = netlifyIdentity.currentUser();
-        netlifyIdentity.on('login', user => console.log('login', user));
+        netlifyIdentity.on('login',
+            user => {
+                console.log('login', user)
+                location.reload();
+            }
+        );
         netlifyIdentity.on('init', user => console.log('init', user));
 
         if (user !== null) {
@@ -239,6 +256,7 @@
         subscriptionForms();
         stripeStuff();
         attachExistingStripeCustomerToUser();
+        renderIdentityName();
     }
     window.onload = fullOnLoad;
 </script>
