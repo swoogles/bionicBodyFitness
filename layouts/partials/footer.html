@@ -50,6 +50,8 @@
 
         var identityNameElement = $("#identity-name");
         var subscriptionElement = $("#subscribe-to-membership");
+        var existingCustomerElement = $("#existing-customer");
+
         if (user === null) {
             if (identityNameElement !== null) {
                 identityNameElement.text('You must log in before selecting a membership.');
@@ -59,7 +61,10 @@
                 subscriptionElement.show();
             }
             if (identityNameElement !== null) {
-                identityNameElement.text('Logged in Name: ' + user.user_metadata.full_name);
+                identityNameElement.text('Name: ' + user.user_metadata.full_name);
+            }
+            if (existingCustomerElement !== null && user.user_metadata.stripe_customer_id !== null) {
+                existingCustomerElement.show();
             }
         }
     }
