@@ -221,6 +221,12 @@
                 location.reload();
             }
         );
+        netlifyIdentity.on('logout',
+            user => {
+                console.log('logout', user)
+                location.reload();
+            }
+        );
         netlifyIdentity.on('init', user => console.log('init', user));
 
         if (user !== null) {
