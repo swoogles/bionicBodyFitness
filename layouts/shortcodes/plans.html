@@ -3,33 +3,35 @@
 <div id="identity-name">
 </div>
 
-<label for="card-element">
-    Credit or debit card
-</label>
-<div id="card-element">
-    <!-- A Stripe Element will be inserted here. -->
-</div>
-
-<!-- Used to display Element errors. -->
-<div id="card-errors" role="alert"></div>
-<div class="container">
-<div class="row">
-    {{ $plans := getJSON "https://www.bionicbodyfitness.com/.netlify/functions/list-plans" }}
-    {{/*{{ $plans := .Site.Data.plans }}*/}}
-    {{ range $plans }}
-            <div class="col-lg">
-            {{ $stripePublicKey := getenv "STRIPE_PUBLIC_KEY"}}
-            <h3>{{.Name}}</h3>
-                    {{ .Price }} / {{ .Interval }}
-                    <form action="https://www.bionicbodyfitness.com/.netlify/functions/register-new-member" method="POST" class="payment-form" id="{{ .Id }}">
-                        <!-- TODO Intercept form submission.
-                             TODO Determine CustomerID, if it is a returning Customer
-                        -->
-                        <input type="hidden" name="planId" value="{{.Id}}">
-                        <input type="submit" value="Register ">
-                    </form>
-        {{/*{{ . | test_stripe_payment_form }}*/}}
+<div id="subscribe-to-membership" class="initiallyHidden">
+    <label for="card-element">
+        Credit or debit card
+    </label>
+    <div id="card-element">
+        <!-- A Stripe Element will be inserted here. -->
     </div>
-    {{ end }}
-</div>
+
+    <!-- Used to display Element errors. -->
+    <div id="card-errors" role="alert"></div>
+    <div class="container">
+    <div class="row">
+        {{ $plans := getJSON "https://www.bionicbodyfitness.com/.netlify/functions/list-plans" }}
+        {{/*{{ $plans := .Site.Data.plans }}*/}}
+        {{ range $plans }}
+                <div class="col-lg">
+                {{ $stripePublicKey := getenv "STRIPE_PUBLIC_KEY"}}
+                <h3>{{.Name}}</h3>
+                        {{ .Price }} / {{ .Interval }}
+                        <form action="https://www.bionicbodyfitness.com/.netlify/functions/register-new-member" method="POST" class="payment-form" id="{{ .Id }}">
+                            <!-- TODO Intercept form submission.
+                                 TODO Determine CustomerID, if it is a returning Customer
+                            -->
+                            <input type="hidden" name="planId" value="{{.Id}}">
+                            <input type="submit" value="Register ">
+                        </form>
+            {{/*{{ . | test_stripe_payment_form }}*/}}
+        </div>
+        {{ end }}
+    </div>
+    </div>
 </div>

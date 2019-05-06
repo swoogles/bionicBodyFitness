@@ -49,11 +49,18 @@
         const user = netlifyIdentity.currentUser();
 
         var identityNameElement = $("#identity-name");
-        if (user !== null && identityNameElement !== null) {
-            identityNameElement.text('Logged in Name: ' + user.user_metadata.full_name);
+        var subscriptionElement = $("#subscribe-to-membership");
+        if (user === null) {
+            if (identityNameElement !== null) {
+                identityNameElement.text('You must log in before selecting a membership.');
+            }
         } else {
-            identityNameElement.text('You must log in before signing up for a membership.');
-
+            if (subscriptionElement !== null) {
+                subscriptionElement.show();
+            }
+            if (identityNameElement !== null) {
+                identityNameElement.text('Logged in Name: ' + user.user_metadata.full_name);
+            }
         }
     }
     function addIdentityInfoToPurchase(token, planId) {

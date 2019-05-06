@@ -29,4 +29,9 @@
 		{{- range .Site.Params.customCSS -}}
     	<link rel="stylesheet" href="{{ . | absURL }}">
   	{{- end -}}
+		<style>
+			.initiallyHidden {
+				display:none;
+			}
+		</style>
 	</head>
