@@ -63,7 +63,10 @@
             if (identityNameElement !== null) {
                 identityNameElement.text('Name: ' + user.user_metadata.full_name);
             }
-            if (existingCustomerElement !== null && user.user_metadata.stripe_customer_id !== null) {
+            console.log("stripe_customer_id in render:");
+            var customerId = user.user_metadata.stripe_customer_id;
+            console.log(customerId);
+            if (existingCustomerElement !== null && customerId) {
                 existingCustomerElement.show();
             }
         }
@@ -184,7 +187,7 @@
 
             let stripeData = {
                 data: {
-                    stripe_customer_id: stripeCustomerId,
+                    stripe_customer_id: '',
                 }
             };
             $.ajax({
@@ -245,6 +248,7 @@
             attachRole(user);
             if (user.user_metadata.hasOwnProperty("stripe_customer_id")) {
                 console.log("We already have a Stripe customer. No need to re-retrieve :)")
+                console.log(user.user_metadata.stripe_customer_id);
             } else {
                 $.ajax({
                     url: '/.netlify/functions/find-stripe-customer',
