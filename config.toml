@@ -94,7 +94,7 @@ confirm_page = "/contact_thanks"
 [params.landing]
 
 [params.landing.banner]
-image = "images/PRIVATE_IMAGE_building_and_whetstone.jpg"
+image = "images/aerial_exterior.jpg"
 
 [[params.landing.banner.button]]
 url = "/contact"
