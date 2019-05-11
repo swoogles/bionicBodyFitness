@@ -1,7 +1,7 @@
 
 <ul>
-    {{/*{{ $products := getJSON "https://www.bionicbodyfitness.com/.netlify/functions/test-list-products" }}*/}}
-    {{ $products := .Site.Data.bill_products }}
+    {{ $products := getJSON "https://www.bionicbodyfitness.com/.netlify/functions/test-list-products" }}
+    {{/*{{ $products := .Site.Data.bill_products }}*/}}
     {{ range $products }}
             {{ $stripePublicKey := getenv "STRIPE_PUBLIC_KEY"}}
             <p>{{.Name}}<p>
