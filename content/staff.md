@@ -1,7 +1,7 @@
 ## Staff
 
 ### Joyce Rossiter, Personal Trainer
-![Example image](/images/climbing.jpg)
+![Profile](/images/climbing.jpg)
 
 *Personal info here. Get from Joyce*
 
