@@ -1,5 +1,5 @@
 ## Staff
-![StaffPhoto](/images/staff_squats.jpeg)
+![StaffPhoto](/images/staff_squats.jpg)
 
 ### Joyce Rossiter, Personal Trainer
 ![Profile](/images/climbing.jpg)
