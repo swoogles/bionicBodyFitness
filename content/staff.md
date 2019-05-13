@@ -10,7 +10,7 @@ Backpacking, hiking, and cross country skiing fill my recreational time.
 For over forty years as a fitness professional and ballet teacher, learning more effective ways to workout has ignited my passion.
 I am excited to continue coaching students of all ages in my Bionic Body Fitness studio.
 
-### Marisca, Personal Instructor
+### Meriska Koekemoer, Personal Instructor
 ![Profile](/images/solo.JPG)
 
 Calling beautiful Crested Butte home, Meriska brings her passion for building strength, overall fitness and optimal health to Bionic Body Fitness.
