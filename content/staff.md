@@ -11,4 +11,8 @@ For over forty years as a fitness professional and ballet teacher, learning more
 I am excited to continue coaching students of all ages in my Bionic Body Fitness studio.
 
 ### Marisca, Personal Instructor
+![Profile](/images/solo.JPG)
 
+Calling beautiful Crested Butte home, Meriska brings her passion for building strength, overall fitness and optimal health to Bionic Body Fitness.
+Studying through the ISSA and constantly researching the latest in biohacking, her classes combine a wide variety of disciplines.
+When she’s not in the gym, she can be found hiking, trail running, snowboarding, cross country skiing, reading or cooking up a storm.
