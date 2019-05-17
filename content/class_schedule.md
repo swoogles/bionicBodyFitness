@@ -27,7 +27,7 @@ A low impact class with emphasis on training muscular strength, core, and
 balance. Learn how to get more focus in your workouts
 
 ###  Weight Circuit
-#### Saturday 8:00 AM
+#### Saturday 7:30 AM
 Get your weekend pumped up with a total body weight workout. Build muscle,
 endurance, and proprioception.
 
