@@ -18,7 +18,7 @@ $225.00 for a 10 pack without a membership
 $200.00 for a 10 pack with a [membership](/memberships)
 
 ### Private lessons
-$500.00 for a 10 pack.
+Contact Joyce directly for pricing. [Email](/contact) or call 970-209-2654.
 
 {{<products>}}
 
