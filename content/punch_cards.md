@@ -1,4 +1,4 @@
-## Punch Cards (Cash/Check only)
+## Punch Cards
 
 ----------------
 ### Classes
