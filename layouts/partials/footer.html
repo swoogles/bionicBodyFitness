@@ -71,41 +71,43 @@
             }
         }
     }
-    function addIdentityInfoToPurchase(token, idToPurchase) {
-        const user = netlifyIdentity.currentUser();
-        console.log("User during stripe form submission");
-        console.log(user);
+    function addIdentityInfoToPurchase(user, token, idToPurchase) {
+        if (user !== null) {
+            console.log("User during stripe form submission");
+            console.log(user);
 
-        var form = document.getElementById(idToPurchase);
+            var form = document.getElementById(idToPurchase);
 
-        var hiddenInput = document.createElement('input');
-        hiddenInput.setAttribute('type', 'hidden');
-        hiddenInput.setAttribute('name', 'stripeToken');
-        hiddenInput.setAttribute('value', token.id);
-        form.appendChild(hiddenInput);
+            var hiddenInput = document.createElement('input');
+            hiddenInput.setAttribute('type', 'hidden');
+            hiddenInput.setAttribute('name', 'stripeToken');
+            hiddenInput.setAttribute('value', token.id);
+            form.appendChild(hiddenInput);
 
-        var hiddenEmail = document.createElement('input');
-        hiddenEmail.setAttribute('type', 'hidden');
-        hiddenEmail.setAttribute('name', 'email');
-        hiddenEmail.setAttribute('value', user.email);
-        form.appendChild(hiddenEmail);
+            var hiddenEmail = document.createElement('input');
+            hiddenEmail.setAttribute('type', 'hidden');
+            hiddenEmail.setAttribute('name', 'email');
+            hiddenEmail.setAttribute('value', user.email);
+            form.appendChild(hiddenEmail);
 
-        var hiddenname = document.createElement('input');
-        hiddenname.setAttribute('type', 'hidden');
-        hiddenname.setAttribute('name', 'name');
-        hiddenname.setAttribute('value', user.user_metadata.full_name);
-        form.appendChild(hiddenname);
+            var hiddenname = document.createElement('input');
+            hiddenname.setAttribute('type', 'hidden');
+            hiddenname.setAttribute('name', 'name');
+            hiddenname.setAttribute('value', user.user_metadata.full_name);
+            form.appendChild(hiddenname);
 
-        var hiddenname = document.createElement('input');
-        hiddenname.setAttribute('type', 'hidden');
-        hiddenname.setAttribute('name', 'stripe_customer_id');
-        hiddenname.setAttribute('value', user.user_metadata.stripe_customer_id);
-        form.appendChild(hiddenname);
+            var hiddenname = document.createElement('input');
+            hiddenname.setAttribute('type', 'hidden');
+            hiddenname.setAttribute('name', 'stripe_customer_id');
+            hiddenname.setAttribute('value', user.user_metadata.stripe_customer_id);
+            form.appendChild(hiddenname);
 
-        form.submit();
+            form.submit();
+        }
     }
 
     function subscriptionForms() {
+        const user = netlifyIdentity.currentUser();
         var forms = document.getElementsByClassName('payment-form');
         $.each(forms, function (idx, form) {
             form.addEventListener('submit', function (event) {
@@ -116,7 +118,7 @@
                         errorElement.textContent = result.error.message;
                     } else {
                         var planId = form.id;
-                        addIdentityInfoToPurchase(result.token, planId);
+                        addIdentityInfoToPurchase(user, result.token, planId);
                     }
                 });
             });
