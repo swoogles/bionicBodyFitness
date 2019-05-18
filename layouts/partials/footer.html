@@ -279,7 +279,7 @@
     }
 
     function fullOnLoad() {
-        setupCardElement();
+        setupCardElement(); // TODO Only do this when we don't have a strip customer_id
         subscriptionForms();
         stripeStuff();
         attachExistingStripeCustomerToUser();
