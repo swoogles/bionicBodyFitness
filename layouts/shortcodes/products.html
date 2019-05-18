@@ -22,7 +22,7 @@
                         Sku Price: {{ .Price }}
                     <h3>{{.Name}}</h3>
                     {{ .Price }}
-                    <form action="https://www.bionicbodyfitness.com/.netlify/functions/register-new-member" method="POST" class="payment-form" id="{{ .Id }}">
+                    <form action="https://www.bionicbodyfitness.com/.netlify/functions/purchase-product" method="POST" class="payment-form" id="{{ .Id }}">
                         <!-- TODO Intercept form submission.
                              TODO Determine CustomerID, if it is a returning Customer
                         -->
