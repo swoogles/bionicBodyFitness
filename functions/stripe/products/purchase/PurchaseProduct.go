@@ -26,12 +26,14 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 		customer, err := stripe.FindCustomer("STRIPE_SECRET_KEY", email)
 		if err != nil {
 			fmt.Println("Could not retrieve customer by email: " + err.Error())
+			// TODO or should I fail here? maybe customer creation here gives us the best experience?
 			customerId = stripe.CreateCustomer("STRIPE_SECRET_KEY", token, email, name)
 		} else {
 			customerId = customer.ID
-			fmt.Println("New Customer Id: " + customerId)
+			fmt.Println("Existing Customer Id retrieved by email: " + customerId)
 		}
 	} else {
+		fmt.Println("Existing Customer Id attached to request: " + customerId)
 		customerId = existingCustomerid
 	}
 
