@@ -71,12 +71,12 @@
             }
         }
     }
-    function addIdentityInfoToPurchase(token, planId) {
+    function addIdentityInfoToPurchase(token, idToPurchase) {
         const user = netlifyIdentity.currentUser();
         console.log("User during stripe form submission");
         console.log(user);
 
-        var form = document.getElementById(planId);
+        var form = document.getElementById(idToPurchase);
 
         var hiddenInput = document.createElement('input');
         hiddenInput.setAttribute('type', 'hidden');
