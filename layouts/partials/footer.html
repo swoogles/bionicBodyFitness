@@ -61,7 +61,11 @@
             if (cardElements !== null && (! user.user_metadata.hasOwnProperty("stripe_customer_id"))) {
                 cardElements.show();
             }
-            if (subscriptionElement !== null ) {
+            if (subscriptionElement !== null &&
+                (
+                    ( user.user_metadata !== null && user.user_metadata.hasOwnProperty("stripe_customer_id"))
+                    || !subscriptionElement.hasClass('show-only-to-existing-customers'))
+            ) {
                 subscriptionElement.show();
             }
             if (identityNameElement !== null) {
