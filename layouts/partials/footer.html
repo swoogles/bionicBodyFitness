@@ -53,11 +53,15 @@
         var subscriptionElement = $("#subscribe-to-membership");
         var existingCustomerElement = $("#existing-customer");
 
+
         if (user === null) {
             if (identityNameElement !== null) {
                 identityNameElement.text('You must log in to purchase memberships or punch cards online.'); // TODO Display more focused message on each page.
             }
         } else {
+            if (! user.user_metadata.hasOwnProperty("stripe_customer_id")) {
+                $(".notice-for-nonmembers").show();
+            }
             if (cardElements !== null && (! user.user_metadata.hasOwnProperty("stripe_customer_id"))) {
                 cardElements.show();
             }
