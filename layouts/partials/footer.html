@@ -54,7 +54,7 @@
 
         if (user === null) {
             if (identityNameElement !== null) {
-                identityNameElement.text('You must log in before selecting a membership.');
+                identityNameElement.text('You must log in to purchase memberships or punch cards online.'); // TODO Display more focused message on each page.
             }
         } else {
             if (subscriptionElement !== null) {
@@ -128,7 +128,7 @@
             if ($('#card-element').length) {
                 if (
                     $('#subscribe-to-membership').hasClass('show-for-new-customers')
-                    && ! user.user_metadata.hasOwnProperty("stripe_customer_id")
+                    && ( user === null || ! user.user_metadata.hasOwnProperty("stripe_customer_id"))
                 ) {
                     console.log("This card element should be rendered!");
                     card.mount('#card-element');
