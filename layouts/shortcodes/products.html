@@ -11,8 +11,8 @@
     <div class="container">
         <div class="row">
 
-            {{ $products := getJSON "https://www.bionicbodyfitness.com/.netlify/functions/test-list-products" }}
-            {{/*{{ $products := .Site.Data.products }}*/}}
+            {{/*{{ $products := getJSON "https://www.bionicbodyfitness.com/.netlify/functions/test-list-products" }}*/}}
+            {{ $products := .Site.Data.products }}
             {{ range $products }}
                 <div class="col-lg">
                     {{ $stripePublicKey := getenv "STRIPE_PUBLIC_KEY"}}
