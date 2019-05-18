@@ -57,7 +57,7 @@
                 identityNameElement.text('You must log in to purchase memberships or punch cards online.'); // TODO Display more focused message on each page.
             }
         } else {
-            if (subscriptionElement !== null) {
+            if (subscriptionElement !== null && (! user.user_metadata.hasOwnProperty("stripe_customer_id") && subscriptionElement.hasClass('show-for-new-customers'))) {
                 subscriptionElement.show();
             }
             if (identityNameElement !== null) {
