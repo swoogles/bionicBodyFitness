@@ -2,19 +2,19 @@
   {
     "Name": "Private Training - 10 Pack",
     "Id": "sku_Euy4ksCdJWGUnZ",
-    "Price": 50000,
-    "Description": ""
+    "Price": "$500.99",
+    "Description": "Test description of private training"
   },
   {
     "Name": "Group Training - 10 Pack",
     "Id": "sku_EuxqKxCggukQxN",
-    "Price": 20000,
-    "Description": ""
+    "Price": "$200.99",
+    "Description": "Test description of group training"
   },
   {
     "Name": "Class Card - 10 Pack Live Test Data",
     "Id": "sku_EuxgNOUYjIEyFZ",
-    "Price": 12000,
-    "Description": ""
+    "Price": "$120.99",
+    "Description": "Test description of class cards"
   }
 ]

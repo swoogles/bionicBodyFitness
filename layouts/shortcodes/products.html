@@ -11,19 +11,17 @@
     <div class="container">
         <div class="row">
 
-            {{ $products := getJSON "https://www.bionicbodyfitness.com/.netlify/functions/list-products" }}
-            {{/*{{ $products := .Site.Data.products }}*/}}
+            {{/*{{ $products := getJSON "https://www.bionicbodyfitness.com/.netlify/functions/list-products" }}*/}}
+            {{ $products := .Site.Data.products }}
             {{ range $products }}
                 <div class="col-lg">
                     {{ $stripePublicKey := getenv "STRIPE_PUBLIC_KEY"}}
-                    <p>{{.Name}}<p>
-                        Sku ID: {{ .ID }}
-                        Sku Price: {{ .Price }}
                     <h3>{{.Name}}</h3>
-                    {{ .Price }}
+                    <p>Description: {{ .Description }}</p>
+                    <p>Price: {{ .Price }}</p>
                     <form action="https://www.bionicbodyfitness.com/.netlify/functions/purchase-product" method="POST" class="payment-form" id="{{ .Id }}">
                         <input type="hidden" name="planId" value="{{.Id}}">
-                        <input type="submit" value="Register ">
+                        <input type="submit" value="Purchase">
                     </form>
                 </div>
             {{ end }}
