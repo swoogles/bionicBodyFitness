@@ -17,7 +17,7 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 
 	email := parameterMap.Get("email")
 	name := parameterMap.Get("name")
-	productId := parameterMap.Get("productId")
+	productId := parameterMap.Get("planId") // TODO Fix name on front end
 
 	var customerId string
 	existingCustomerid := parameterMap.Get("stripe_customer_id")
