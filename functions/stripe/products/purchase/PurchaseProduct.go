@@ -1,4 +1,4 @@
-package purchase
+package main
 
 import (
 	"fmt"
