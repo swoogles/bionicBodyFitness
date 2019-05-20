@@ -10,4 +10,3 @@ build:
 	go build -o lambdas/register-new-member  ./functions/stripe/membership/new
 	# hugo server --buildDrafts --buildFuture --ignoreCache
 	hugo -v
-
