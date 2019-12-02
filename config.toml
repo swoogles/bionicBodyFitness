@@ -189,7 +189,7 @@ message = "We'd love to hear from you."
 [params.footer]
 copyright = ["[CC0 (public domain)](//creativecommons.org/publicdomain/zero/1.0/)",
 "Design: [HTML5 UP](//html5up.net/alpha)",
-"[Bionic Body Fitness](//github.com/swoogles/bionicBodyFitness) by [Bill Frasure](//github.com/swoogles)"
+"[Bionic Body Fitness](//github.com/swoogles/bionicBodyFitness) by [BilldingSoftware](//billdingsoftware.com/)"
 ]
 
 [[params.links]]
