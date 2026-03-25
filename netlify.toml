@@ -5,6 +5,8 @@ publish = "public"
 
 [build.environment]
 GO_IMPORT_PATH = "github.com/swoogles/bionicBodyFitness"
+GO_VERSION = "1.21"
+HUGO_VERSION = "0.145.0"
 
 [context.production.environment]
 HUGO_ENV = "production"
