@@ -1,7 +1,7 @@
 baseURL = "/"
 languageCode = "en-us"
 title = "Bionic Body Fitness"
-theme = "alpha-church"
+theme = ["alpha-church", "hugo-shortcodes"]
 
 [caches]
 [caches.getjson]

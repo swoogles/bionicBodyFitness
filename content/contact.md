@@ -6,4 +6,9 @@ images: []
 tags: ""
 draft: false
 ---
+
+{{< tel number="+19702092654" />}}
+
+{{< mailto email="joyce@bionicbodyfitness.com" />}}
+
 {{< contact_form >}}
