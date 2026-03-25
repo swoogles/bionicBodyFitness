@@ -7,8 +7,8 @@ tags: ""
 draft: false
 ---
 
-{{< tel number="+19702092654" />}}
+**Phone:** [+1 (970) 209-2654](tel:+19702092654)
 
-{{< mailto email="joyce@bionicbodyfitness.com" />}}
+**Email:** [joyce@bionicbodyfitness.com](mailto:joyce@bionicbodyfitness.com)
 
 {{< contact_form >}}

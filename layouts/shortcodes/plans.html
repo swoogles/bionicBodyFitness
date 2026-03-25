@@ -36,7 +36,8 @@
 <div id="subscribe-to-membership" class="initiallyHidden">
     <div class="container">
     <div class="row">
-        {{ $plans := getJSON "https://www.bionicbodyfitness.com/.netlify/functions/list-plans" }}
+        {{ $plansResource := resources.GetRemote "https://www.bionicbodyfitness.com/.netlify/functions/list-plans" }}
+        {{ $plans := $plansResource.Content | transform.Unmarshal }}
         {{/*{{ $plans := .Site.Data.plans }}*/}}
         {{ range $plans }}
                 <div class="col-lg">

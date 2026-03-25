@@ -8,4 +8,4 @@ build:
 	go build -o lambdas/create-stripe-customer  ./functions/stripe/customers/create
 	go build -o lambdas/register-new-member  ./functions/stripe/membership/new
 	# hugo server --buildDrafts --buildFuture --ignoreCache
-	hugo -v
+	hugo

@@ -31,7 +31,8 @@
     <div class="container">
         <div class="row">
 
-            {{ $products := getJSON "https://www.bionicbodyfitness.com/.netlify/functions/list-products" }}
+            {{ $productsResource := resources.GetRemote "https://www.bionicbodyfitness.com/.netlify/functions/list-products" }}
+            {{ $products := $productsResource.Content | transform.Unmarshal }}
             {{/*{{ $products := .Site.Data.products }}*/}}
             {{ range $products }}
                 <div class="col-lg">
