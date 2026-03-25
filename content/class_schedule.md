@@ -1,3 +1,8 @@
+**Call:** [(970) 209-2654](tel:+19702092654)
+
+**Email:** [joyce@bionicbodyfitness.com](mailto:joyce@bionicbodyfitness.com)
+
+---
 
 ## Morning classes
 

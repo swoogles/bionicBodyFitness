@@ -1,5 +1,10 @@
 {{ "<!-- Footer -->" | safeHTML}}
   <footer id="footer">
+    <div class="contact-info">
+      <a href="tel:+19702092654"><i class="icon fas fa-phone"></i> (970) 209-2654</a>
+      <br>
+      <a href="mailto:joyce@bionicbodyfitness.com"><i class="icon fas fa-envelope"></i> joyce@bionicbodyfitness.com</a>
+    </div>
     <ul class="icons">
       {{ range .Site.Params.links }}
       {{ $pack := or .icon_pack "fa" }}
